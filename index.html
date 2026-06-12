@@ -1,0 +1,2257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vacances de Maths — 5ᵉ • Été 2026 | Saint Joseph de Cluny</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" crossorigin="anonymous"
+onload="renderMathInElement(document.body, {delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}], throwOnError:false});"></script>
+
+<style>
+  :root {
+    --bleu: #1e6091;
+    --bleu-clair: #4a90c2;
+    --jaune: #f4b942;
+    --vert: #588b4e;
+    --rouge: #c1432d;
+    --violet: #7a4a8f;
+    --fond: #f7f3e8;
+    --fond-carte: #ffffff;
+    --texte: #2c2c2c;
+    --gris: #6b6b6b;
+    --bordure: #e0d8c4;
+    --ombre: 0 4px 16px rgba(30, 96, 145, 0.08);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    background: var(--fond);
+    color: var(--texte);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  header {
+    background: linear-gradient(135deg, var(--bleu) 0%, var(--bleu-clair) 100%);
+    color: white;
+    padding: 2rem 1rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  header h1 {
+    margin: 0;
+    font-size: clamp(1.5rem, 4vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  header .sous-titre {
+    margin-top: 0.5rem;
+    opacity: 0.9;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+  }
+  header .date-jour {
+    margin-top: 1rem;
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+  }
+  .nav-jours {
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--ombre);
+    border: 1px solid var(--bordure);
+  }
+  .nav-jours label {
+    font-weight: 600;
+    color: var(--bleu);
+    margin-right: 0.5rem;
+  }
+  .nav-jours select {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--bordure);
+    border-radius: 8px;
+    background: white;
+    font-size: 1rem;
+    color: var(--texte);
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .nav-jours select:focus { outline: none; border-color: var(--bleu-clair); }
+  .nav-jours .boutons {
+    margin-top: 0.7rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .nav-jours button {
+    padding: 0.45rem 0.9rem;
+    border: 2px solid var(--bleu);
+    background: white;
+    color: var(--bleu);
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .nav-jours button:hover { background: var(--bleu); color: white; }
+  .nav-jours button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    border-color: var(--gris);
+    color: var(--gris);
+  }
+  .nav-jours button:disabled:hover { background: white; color: var(--gris); }
+
+  .carte {
+    background: var(--fond-carte);
+    border-radius: 14px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--ombre);
+    border: 1px solid var(--bordure);
+  }
+  .carte h2 {
+    margin: 0 0 0.3rem;
+    color: var(--bleu);
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .carte .theme {
+    color: var(--gris);
+    font-style: italic;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .badge-cours { background: #e7e0f1; color: #432567; }
+  .badge-auto { background: #fff3cd; color: #856404; }
+  .badge-pb { background: #d1e7dd; color: #0f5132; }
+  .badge-corr { background: #f8d7da; color: #842029; }
+
+  .cours-bloc {
+    background: #f4eef9;
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--violet);
+    margin: 0.5rem 0;
+  }
+
+  .automatismes ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+  .automatismes li {
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    background: #fef9ee;
+    border-left: 4px solid var(--jaune);
+    border-radius: 6px;
+    list-style-position: inside;
+  }
+  .automatismes .reponse {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed #ddd;
+    color: var(--vert);
+    font-weight: 500;
+    display: none;
+  }
+  .automatismes .reponse.visible { display: block; }
+  .toggle-rep {
+    margin-top: 0.5rem;
+    background: none;
+    border: 1px solid var(--vert);
+    color: var(--vert);
+    padding: 0.25rem 0.6rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-family: inherit;
+  }
+  .toggle-rep:hover { background: var(--vert); color: white; }
+
+  .probleme h3 { color: var(--bleu); margin: 0 0 0.5rem; font-size: 1.2rem; }
+  .probleme .enonce {
+    background: #eaf3fa;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--bleu-clair);
+    margin: 0.7rem 0 1rem;
+  }
+  .probleme .questions { padding-left: 0; list-style: none; }
+  .probleme .questions li {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+  }
+
+  .correction {
+    background: #fef5f5;
+    padding: 1.2rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--rouge);
+    margin-top: 0.5rem;
+    line-height: 1.7;
+  }
+  .correction-locked {
+    background: #f0f0f0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    color: var(--gris);
+    font-style: italic;
+    border: 2px dashed var(--bordure);
+  }
+  .correction-locked .icone { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+
+  .attente {
+    background: white;
+    border-radius: 14px;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    box-shadow: var(--ombre);
+    border: 1px solid var(--bordure);
+  }
+  .attente .icone { font-size: 4rem; }
+  .attente h2 { color: var(--bleu); margin: 1rem 0; }
+  .attente p { color: var(--gris); font-size: 1.1rem; }
+
+  footer {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    color: var(--gris);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--bordure);
+    background: white;
+  }
+  footer strong { color: var(--bleu); }
+
+  @media (max-width: 600px) {
+    .container { padding: 1rem 0.7rem 2rem; }
+    .carte { padding: 1.1rem; }
+    .nav-jours .boutons { gap: 0.35rem; }
+    .nav-jours button { font-size: 0.85rem; padding: 0.35rem 0.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🌞 Vacances de Maths — 5ᵉ</h1>
+  <div class="sous-titre">Un problème par jour, du 1ᵉʳ juillet au 31 août 2026</div>
+  <div class="date-jour" id="date-aujourdhui">…</div>
+</header>
+
+<div class="container">
+
+  <div class="nav-jours">
+    <label for="select-jour">📅 Aller au jour :</label>
+    <select id="select-jour"></select>
+    <div class="boutons">
+      <button id="btn-prec">← Précédent</button>
+      <button id="btn-auj">📍 Aujourd'hui</button>
+      <button id="btn-suiv">Suivant →</button>
+    </div>
+  </div>
+
+  <div id="contenu"></div>
+
+</div>
+
+<footer>
+  Conçu par <strong>C. Ridarch</strong> — Collège Lycée Saint Joseph de Cluny, Fort-de-France 🇲🇶<br>
+  Bonnes vacances et bon entraînement à tous les 5ᵉ&nbsp;!
+</footer>
+
+<script>
+const EXOS = [
+  {
+    "date": "2026-07-01",
+    "theme": "Divisibilité — diviseurs communs",
+    "cours": "<b>Diviseur :</b> un nombre \\(d\\) est un diviseur de \\(n\\) si \\(n\\) est dans la table de \\(d\\) (le reste de la division de \\(n\\) par \\(d\\) est nul).<br><b>Diviseur commun :</b> un nombre qui divise plusieurs nombres à la fois.<br><b>Astuce :</b> pour partager deux quantités en parts identiques, on cherche un <i>diviseur commun</i> aux deux.",
+    "automatismes": [
+      {
+        "q": "Combien font \\(7 \\times 8\\) ?",
+        "r": "\\(7 \\times 8 = 56\\)"
+      },
+      {
+        "q": "138 est-il divisible par 3 ?",
+        "r": "Oui car \\(1+3+8 = 12\\) est divisible par 3."
+      },
+      {
+        "q": "Cite les diviseurs de 12.",
+        "r": "1, 2, 3, 4, 6 et 12."
+      }
+    ],
+    "probleme": {
+      "titre": "Les pochettes-surprises d'anniversaire",
+      "enonce": "C'est l'anniversaire d'Anaïs. Elle veut préparer des pochettes-surprises identiques pour ses invités, en répartissant 84 bonbons à la fraise et 60 chewing-gums. Chaque pochette doit contenir le même nombre de bonbons et le même nombre de chewing-gums, et tous les bonbons et chewing-gums doivent être utilisés.",
+      "questions": [
+        "a) Quel est le plus grand nombre de pochettes qu'elle peut préparer ?",
+        "b) Combien y aura-t-il alors de bonbons à la fraise dans chaque pochette ? De chewing-gums ?"
+      ]
+    },
+    "correction": "a) On cherche le plus grand diviseur commun de 84 et 60.<br>Diviseurs de 84 : 1, 2, 3, 4, 6, 7, 12, 14, 21, 28, 42, 84.<br>Diviseurs de 60 : 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60.<br>Le plus grand diviseur commun est <b>12</b> → <b>12 pochettes</b>.<br><br>b) Dans chaque pochette : \\(84 \\div 12 = 7\\) bonbons à la fraise et \\(60 \\div 12 = 5\\) chewing-gums."
+  },
+  {
+    "date": "2026-07-02",
+    "theme": "Nombres premiers",
+    "cours": "<b>Nombre premier :</b> nombre entier supérieur à 1 qui n'a que deux diviseurs : 1 et lui-même.<br>Liste des premiers \\(< 30\\) : 2, 3, 5, 7, 11, 13, 17, 19, 23, 29.<br><b>Attention :</b> 1 n'est <i>pas</i> premier.",
+    "automatismes": [
+      {
+        "q": "17 est-il premier ?",
+        "r": "Oui, ses seuls diviseurs sont 1 et 17."
+      },
+      {
+        "q": "Décompose 18 en produit de facteurs premiers.",
+        "r": "\\(18 = 2 \\times 3^2\\)"
+      },
+      {
+        "q": "Cite tous les nombres premiers inférieurs à 20.",
+        "r": "2, 3, 5, 7, 11, 13, 17, 19."
+      }
+    ],
+    "probleme": {
+      "titre": "Le code de la valise",
+      "enonce": "Pour son voyage, papa a choisi un code de cadenas à 2 chiffres. Il donne ces indices à Yanis :<br>• Le code est un nombre premier.<br>• Il est compris entre 30 et 50.<br>• Si on lui ajoute 2, on obtient encore un nombre premier.",
+      "questions": [
+        "a) Liste tous les nombres premiers entre 30 et 50.",
+        "b) Pour chacun, calcule le nombre obtenu en ajoutant 2 et indique s'il est premier.",
+        "c) Quel est le code du cadenas ?"
+      ]
+    },
+    "correction": "a) Nombres premiers entre 30 et 50 : <b>31, 37, 41, 43, 47</b>.<br><br>b) On ajoute 2 et on teste :<br>• \\(31+2=33=3\\times 11\\) → non premier<br>• \\(37+2=39=3\\times 13\\) → non premier<br>• \\(41+2=43\\) → <b>premier ✓</b><br>• \\(43+2=45=9\\times 5\\) → non premier<br>• \\(47+2=49=7\\times 7\\) → non premier<br><br>c) Le code est <b>41</b>."
+  },
+  {
+    "date": "2026-07-03",
+    "theme": "Périmètre du cercle",
+    "cours": "<b>Périmètre d'un cercle</b> de rayon \\(r\\) (ou diamètre \\(d\\)) :<br>\\[P = 2\\pi r = \\pi d\\]<b>Valeur exacte :</b> on garde le \\(\\pi\\). <b>Valeur approchée :</b> on utilise \\(\\pi \\approx 3{,}14\\).",
+    "automatismes": [
+      {
+        "q": "Formule du périmètre d'un cercle de rayon \\(r\\) ?",
+        "r": "\\(P = 2\\pi r\\)"
+      },
+      {
+        "q": "Diamètre d'un cercle de rayon 4,5 cm ?",
+        "r": "\\(d = 9\\) cm."
+      },
+      {
+        "q": "Calcule \\(2\\pi \\times 5\\) en valeur exacte.",
+        "r": "\\(10\\pi\\)"
+      }
+    ],
+    "probleme": {
+      "titre": "Le tour du rond-point",
+      "enonce": "À Fort-de-France, un rond-point a la forme d'un cercle de 25 m de rayon. Hugo, qui s'entraîne pour le cross du collège, fait 8 tours complets du rond-point en footing.",
+      "questions": [
+        "a) Calcule le périmètre du rond-point en valeur exacte (en fonction de \\(\\pi\\)).",
+        "b) Calcule la distance parcourue par Hugo, arrondie au mètre près."
+      ]
+    },
+    "correction": "a) Périmètre : \\(P = 2\\pi \\times 25 = 50\\pi\\) m (valeur exacte).<br><br>b) Distance totale : \\(8 \\times 50\\pi = 400\\pi \\approx 1257\\) m. Hugo parcourt environ <b>1 257 m</b>."
+  },
+  {
+    "date": "2026-07-04",
+    "theme": "Aire du disque",
+    "cours": "<b>Aire d'un disque</b> de rayon \\(r\\) :<br>\\[\\mathcal{A} = \\pi r^2\\]<b>Attention :</b> on multiplie le rayon par lui-même, pas le diamètre !",
+    "automatismes": [
+      {
+        "q": "Formule de l'aire d'un disque de rayon \\(r\\) ?",
+        "r": "\\(\\mathcal{A} = \\pi r^2\\)"
+      },
+      {
+        "q": "Calcule \\(6^2\\).",
+        "r": "\\(36\\)"
+      },
+      {
+        "q": "Aire d'un disque de rayon 3 cm en valeur exacte ?",
+        "r": "\\(9\\pi\\) cm²"
+      }
+    ],
+    "probleme": {
+      "titre": "La pizza royale partagée",
+      "enonce": "Mathilde commande une pizza ronde de 32 cm de diamètre à partager équitablement entre ses 4 cousins lors du barbecue dominical.",
+      "questions": [
+        "a) Calcule l'aire totale de la pizza en valeur exacte.",
+        "b) Quelle est l'aire de la part de chaque cousin, arrondie au cm² ?"
+      ]
+    },
+    "correction": "a) Rayon : \\(r = 32 \\div 2 = 16\\) cm.<br>Aire : \\(\\mathcal{A} = \\pi \\times 16^2 = 256\\pi\\) cm² (valeur exacte).<br><br>b) Une part : \\(\\dfrac{256\\pi}{4} = 64\\pi \\approx \\mathbf{201}\\) cm²."
+  },
+  {
+    "date": "2026-07-05",
+    "theme": "Enchaînement d'opérations",
+    "cours": "<b>Priorités de calcul :</b><br>1. les calculs entre parenthèses ;<br>2. les multiplications et divisions (de gauche à droite) ;<br>3. les additions et soustractions (de gauche à droite).",
+    "automatismes": [
+      {
+        "q": "Calcule \\(3 + 4 \\times 5\\).",
+        "r": "\\(3 + 20 = 23\\)"
+      },
+      {
+        "q": "Calcule \\((7-2) \\times 4\\).",
+        "r": "\\(5 \\times 4 = 20\\)"
+      },
+      {
+        "q": "Calcule \\(20 - 3 \\times 2 + 5\\).",
+        "r": "\\(20 - 6 + 5 = 19\\)"
+      }
+    ],
+    "probleme": {
+      "titre": "Courses au marché du samedi",
+      "enonce": "Au marché du samedi matin, Sami achète 3 kg de tomates à 2,50 € le kilo et 2 melons à 4 € pièce. Le vendeur lui fait une remise de 1,50 € sur l'ensemble car c'est un habitué.",
+      "questions": [
+        "a) Écris une seule expression numérique qui correspond au montant payé.",
+        "b) Calcule ce montant en respectant les priorités opératoires."
+      ]
+    },
+    "correction": "a) Expression : \\(3 \\times 2{,}5 + 2 \\times 4 - 1{,}5\\).<br><br>b) D'abord les multiplications : \\(3 \\times 2{,}5 = 7{,}5\\) et \\(2 \\times 4 = 8\\).<br>Puis : \\(7{,}5 + 8 - 1{,}5 = \\mathbf{14}\\) €."
+  },
+  {
+    "date": "2026-07-06",
+    "theme": "Distributivité simple",
+    "cours": "<b>Distributivité :</b> pour tous nombres \\(k\\), \\(a\\) et \\(b\\) :<br>\\[k(a+b) = ka + kb \\qquad k(a-b) = ka - kb\\]Très utile pour le calcul mental : \\(25 \\times 102 = 25 \\times 100 + 25 \\times 2\\).",
+    "automatismes": [
+      {
+        "q": "Développe : \\(3(x+5)\\).",
+        "r": "\\(3x + 15\\)"
+      },
+      {
+        "q": "Développe : \\(4(a-2)\\).",
+        "r": "\\(4a - 8\\)"
+      },
+      {
+        "q": "Calcule \\(7 \\times 102\\) avec la distributivité.",
+        "r": "\\(7 \\times (100+2) = 700 + 14 = 714\\)"
+      }
+    ],
+    "probleme": {
+      "titre": "Au rayon scolaire",
+      "enonce": "Émilie achète 25 cahiers identiques pour la rentrée du collège à 2,98 € pièce. Elle veut calculer rapidement le total <i>sans calculatrice</i>, en remarquant que \\(2{,}98 = 3 - 0{,}02\\).",
+      "questions": [
+        "a) Complète : \\(25 \\times 2{,}98 = 25 \\times (3 - \\ldots) = 25 \\times 3 - 25 \\times \\ldots\\)",
+        "b) Termine le calcul.",
+        "c) Utilise la même méthode pour calculer \\(15 \\times 99\\)."
+      ]
+    },
+    "correction": "a) \\(25 \\times 2{,}98 = 25 \\times (3 - 0{,}02) = 25 \\times 3 - 25 \\times 0{,}02\\).<br><br>b) \\(25 \\times 3 = 75\\) et \\(25 \\times 0{,}02 = 0{,}5\\). Total : \\(75 - 0{,}5 = \\mathbf{74{,}50}\\) €.<br><br>c) \\(15 \\times 99 = 15 \\times (100 - 1) = 1\\,500 - 15 = \\mathbf{1\\,485}\\)."
+  },
+  {
+    "date": "2026-07-07",
+    "theme": "Inégalité triangulaire",
+    "cours": "<b>Inégalité triangulaire :</b> dans tout triangle, la longueur du plus grand côté est <i>strictement inférieure</i> à la somme des deux autres.<br>Pour qu'un triangle existe avec des côtés \\(a\\), \\(b\\) et \\(c\\) (avec \\(c\\) le plus grand) : \\(a + b > c\\).",
+    "automatismes": [
+      {
+        "q": "Peut-on construire un triangle de côtés 3, 4 et 5 cm ?",
+        "r": "Oui car \\(3+4>5\\)."
+      },
+      {
+        "q": "Et un triangle de côtés 2, 3 et 6 cm ?",
+        "r": "Non, car \\(2+3=5<6\\)."
+      },
+      {
+        "q": "Le plus grand côté d'un triangle est opposé au…",
+        "r": "plus grand angle."
+      }
+    ],
+    "probleme": {
+      "titre": "Bricoler un cerf-volant",
+      "enonce": "Pour la fête sur la plage, Maël veut construire la structure d'un cerf-volant triangulaire. Il a trois baguettes de bois mesurant 7 cm, 4 cm et 12 cm. Il assure : « ça va faire un super triangle ! »",
+      "questions": [
+        "a) Vérifie l'inégalité triangulaire pour ces longueurs.",
+        "b) Maël a-t-il raison ? Justifie.",
+        "c) S'il garde les baguettes de 7 et 4 cm, entre quelles valeurs doit se trouver la troisième baguette ?"
+      ]
+    },
+    "correction": "a) Plus grand côté : 12 cm. Somme des deux autres : \\(7 + 4 = 11\\). Or \\(11 < 12\\).<br><br>b) <b>Non, Maël a tort :</b> l'inégalité triangulaire n'est pas vérifiée, le triangle est impossible.<br><br>c) Soit \\(x\\) la troisième baguette : \\(7 - 4 < x < 7 + 4\\), donc <b>\\(3 < x < 11\\)</b> (en cm)."
+  },
+  {
+    "date": "2026-07-08",
+    "theme": "Proportionnalité — recette",
+    "cours": "<b>Proportionnalité :</b> on multiplie (ou divise) toutes les quantités par un même nombre, appelé <i>coefficient de proportionnalité</i>.<br><b>Quatrième proportionnelle :</b> dans un tableau de proportionnalité, c'est la valeur manquante. On utilise le « produit en croix ».",
+    "automatismes": [
+      {
+        "q": "3 stylos coûtent 4,50 €. Combien coûtent 6 stylos ?",
+        "r": "9 € (× 2)."
+      },
+      {
+        "q": "Si 5 kg coûtent 12 €, quel est le prix au kg ?",
+        "r": "2,40 €/kg."
+      },
+      {
+        "q": "Complète : \\(\\dfrac{2}{5} = \\dfrac{6}{?}\\)",
+        "r": "\\(? = 15\\)"
+      }
+    ],
+    "probleme": {
+      "titre": "Crêpes pour invités-surprise",
+      "enonce": "Mamie a une recette de crêpes pour 4 personnes : 250 g de farine, 3 œufs et 50 cL de lait. Mais ce soir, elle attend en réalité 10 personnes pour le dîner !",
+      "questions": [
+        "a) Calcule la quantité de farine nécessaire.",
+        "b) Combien de cL de lait faut-il ? Convertis en L.",
+        "c) Combien d'œufs faut-il (arrondi à l'entier supérieur) ?"
+      ]
+    },
+    "correction": "Coefficient : \\(10 \\div 4 = 2{,}5\\).<br><br>a) Farine : \\(250 \\times 2{,}5 = \\mathbf{625}\\) g.<br>b) Lait : \\(50 \\times 2{,}5 = 125\\) cL = <b>1,25 L</b>.<br>c) Œufs : \\(3 \\times 2{,}5 = 7{,}5\\) → <b>8 œufs</b> (arrondi au-dessus)."
+  },
+  {
+    "date": "2026-07-09",
+    "theme": "Médiatrice d'un segment",
+    "cours": "<b>Définition :</b> la <i>médiatrice</i> d'un segment [AB] est la droite perpendiculaire à [AB] et qui passe par son milieu.<br><b>Propriété :</b> tout point M de la médiatrice de [AB] vérifie \\(MA = MB\\) (il est <i>équidistant</i> des extrémités). La réciproque est vraie aussi.",
+    "automatismes": [
+      {
+        "q": "La médiatrice d'un segment est perpendiculaire à ce segment et passe par…",
+        "r": "son milieu."
+      },
+      {
+        "q": "Si M est sur la médiatrice de [AB], que peut-on dire de MA et MB ?",
+        "r": "\\(MA = MB\\)."
+      },
+      {
+        "q": "Combien de points équidistants faut-il (au compas) pour tracer une médiatrice ?",
+        "r": "Deux."
+      }
+    ],
+    "probleme": {
+      "titre": "Une fontaine équidistante",
+      "enonce": "Dans le parc, on veut installer une fontaine \\(F\\) qui soit à <b>égale distance</b> de deux bancs \\(A\\) et \\(B\\) déjà fixés (\\(AB = 8\\) m).",
+      "questions": [
+        "a) Que peut-on dire, géométriquement, de l'ensemble des emplacements possibles pour la fontaine ?",
+        "b) Le jardinier impose que la fontaine soit aussi à <b>3 m du milieu</b> du segment [AB]. Combien d'emplacements possibles existe-t-il ?",
+        "c) Trace la situation à l'échelle 1 cm pour 1 m sur ton cahier."
+      ]
+    },
+    "correction": "a) L'ensemble des points équidistants de \\(A\\) et \\(B\\) est la <b>médiatrice</b> de [AB].<br><br>b) Sur cette médiatrice, il y a deux points à 3 m du milieu : un de chaque côté de [AB]. Il y a donc <b>2 emplacements possibles</b> pour la fontaine.<br><br>c) On trace [AB] de 8 cm, on construit la médiatrice de [AB], on marque les deux points à 3 cm du milieu sur la médiatrice."
+  },
+  {
+    "date": "2026-07-10",
+    "theme": "Volume du pavé droit",
+    "cours": "<b>Volume d'un pavé droit</b> de dimensions \\(L\\), \\(\\ell\\) et \\(h\\) :<br>\\[V = L \\times \\ell \\times h\\]<b>Conversions à connaître :</b> \\(1\\) L \\(= 1\\) dm³ \\(= 1\\,000\\) cm³ ; \\(1\\) m³ \\(= 1\\,000\\) L.",
+    "automatismes": [
+      {
+        "q": "Formule du volume d'un pavé droit ?",
+        "r": "\\(V = L \\times \\ell \\times h\\)"
+      },
+      {
+        "q": "Combien de cL dans 1 L ?",
+        "r": "100 cL."
+      },
+      {
+        "q": "1 dm³ = ? L",
+        "r": "1 L."
+      }
+    ],
+    "probleme": {
+      "titre": "Le nouvel aquarium",
+      "enonce": "Théo a craqué pour un aquarium en forme de pavé droit : 80 cm de long, 35 cm de large, 40 cm de haut. Il souhaite le remplir d'eau jusqu'à 5 cm du bord supérieur (pour éviter les éclaboussures).",
+      "questions": [
+        "a) Calcule le volume total de l'aquarium en cm³.",
+        "b) Calcule le volume d'eau nécessaire en cm³, puis en L.",
+        "c) Si Théo achète des bidons d'eau de 5 L, combien doit-il en acheter ?"
+      ]
+    },
+    "correction": "a) \\(V = 80 \\times 35 \\times 40 = \\mathbf{112\\,000}\\) cm³.<br><br>b) Hauteur d'eau : \\(40 - 5 = 35\\) cm.<br>Volume d'eau : \\(80 \\times 35 \\times 35 = 98\\,000\\) cm³ = <b>98 L</b>.<br><br>c) \\(98 \\div 5 = 19{,}6\\). Il faut <b>20 bidons</b>."
+  },
+  {
+    "date": "2026-07-11",
+    "theme": "Volume du cylindre",
+    "cours": "<b>Volume d'un cylindre</b> de révolution, de rayon \\(r\\) et de hauteur \\(h\\) :<br>\\[V = \\pi r^2 \\times h\\](c'est l'aire du disque de base multipliée par la hauteur.)",
+    "automatismes": [
+      {
+        "q": "Formule du volume d'un cylindre ?",
+        "r": "\\(V = \\pi r^2 \\times h\\)"
+      },
+      {
+        "q": "Aire d'un disque de rayon 5 cm en valeur exacte ?",
+        "r": "\\(25\\pi\\) cm²"
+      },
+      {
+        "q": "1 L = combien de cm³ ?",
+        "r": "1 000 cm³."
+      }
+    ],
+    "probleme": {
+      "titre": "La citerne d'eau du jardin",
+      "enonce": "Pour récupérer l'eau de pluie, Mr Lin a installé une citerne cylindrique : rayon 0,5 m, hauteur 1,2 m. Aujourd'hui, elle est remplie aux trois quarts.",
+      "questions": [
+        "a) Calcule le volume total de la citerne (arrondi au dm³).",
+        "b) Quelle quantité d'eau (en L) contient-elle ?"
+      ]
+    },
+    "correction": "a) En dm : \\(r = 5\\) dm, \\(h = 12\\) dm.<br>\\(V = \\pi \\times 5^2 \\times 12 = 300\\pi \\approx \\mathbf{942}\\) dm³.<br><br>b) 1 dm³ = 1 L → ≈ 942 L au total.<br>Volume d'eau (3/4) : \\(942 \\times \\dfrac{3}{4} \\approx \\mathbf{707}\\) L."
+  },
+  {
+    "date": "2026-07-12",
+    "theme": "Comparaison de nombres relatifs",
+    "cours": "<b>Sur une droite graduée :</b> le plus grand nombre est celui qui se trouve <i>le plus à droite</i>.<br>Donc \\(-3 > -7\\) (et \\(-7 < -3\\)). Tout nombre positif est plus grand que tout nombre négatif.<br><b>Opposé :</b> l'opposé de \\(+5\\) est \\(-5\\) ; ils sont à la même distance de 0.",
+    "automatismes": [
+      {
+        "q": "Compare \\(-3\\) et \\(-7\\).",
+        "r": "\\(-3 > -7\\)."
+      },
+      {
+        "q": "Range dans l'ordre croissant : \\(-2 ; 0 ; -5 ; 3 ; -1\\).",
+        "r": "\\(-5 < -2 < -1 < 0 < 3\\)."
+      },
+      {
+        "q": "Opposé de \\(-8\\) ?",
+        "r": "\\(+8\\)."
+      }
+    ],
+    "probleme": {
+      "titre": "Météo planétaire",
+      "enonce": "Le 15 janvier à midi, voici les températures relevées dans plusieurs villes :<br>Reykjavik : −7 °C — Moscou : −12 °C — Paris : 4 °C — Marrakech : 18 °C — Oslo : −3 °C — Le Caire : 15 °C — Fort-de-France : 26 °C.",
+      "questions": [
+        "a) Range les villes de la plus froide à la plus chaude.",
+        "b) Quel est l'écart de température entre Moscou et Fort-de-France ?",
+        "c) Quelle ville a la température opposée à \\(+3\\) °C ?"
+      ]
+    },
+    "correction": "a) Moscou (−12) < Reykjavik (−7) < Oslo (−3) < Paris (+4) < Le Caire (+15) < Marrakech (+18) < Fort-de-France (+26).<br><br>b) Écart : \\(26 - (-12) = 26 + 12 = \\mathbf{38}\\) °C.<br><br>c) L'opposé de \\(+3\\) est \\(-3\\) : c'est <b>Oslo</b>."
+  },
+  {
+    "date": "2026-07-13",
+    "theme": "Repérage dans le plan",
+    "cours": "<b>Repère orthonormé :</b> deux axes perpendiculaires gradués (Ox horizontal, Oy vertical) qui se croisent en l'origine O.<br><b>Coordonnées</b> d'un point : \\(M(x ; y)\\) où \\(x\\) est l'abscisse (lue sur Ox) et \\(y\\) l'ordonnée (lue sur Oy).<br><b>Milieu</b> de [AB] : ses coordonnées sont les moyennes des coordonnées de A et B.",
+    "automatismes": [
+      {
+        "q": "Coordonnées de l'origine O ?",
+        "r": "\\(O(0\\,;0)\\)."
+      },
+      {
+        "q": "Le point \\(A(-2 ; 3)\\) est dans quel cadran ?",
+        "r": "En haut à gauche (2ᵉ quadrant)."
+      },
+      {
+        "q": "Coordonnées du point situé 4 unités à droite et 1 vers le bas de O ?",
+        "r": "\\((4 ; -1)\\)."
+      }
+    ],
+    "probleme": {
+      "titre": "Chasse au trésor sur la plage",
+      "enonce": "Les enfants ont caché un trésor au <b>milieu</b> du segment [AB] avec \\(A(-4 ; 2)\\) et \\(B(6 ; -2)\\). Voici un repère pour t'aider à construire la situation :",
+      "repere": "<svg viewBox=\"0 0 380 380\" xmlns=\"http://www.w3.org/2000/svg\" style=\"max-width:340px;width:100%;display:block;margin:0.7rem auto;background:white;border:1px solid #ddd;border-radius:6px;\">\n<defs><marker id=\"arr\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"4\" orient=\"auto\">\n<polygon points=\"0,0 8,4 0,8\" fill=\"#333\"/></marker></defs>\n<g stroke=\"#e8e8e8\" stroke-width=\"1\">\n<line x1=\"30\" y1=\"30\" x2=\"30\" y2=\"350\"/>\n<line x1=\"30\" y1=\"30\" x2=\"350\" y2=\"30\"/>\n<line x1=\"55\" y1=\"30\" x2=\"55\" y2=\"350\"/>\n<line x1=\"30\" y1=\"55\" x2=\"350\" y2=\"55\"/>\n<line x1=\"80\" y1=\"30\" x2=\"80\" y2=\"350\"/>\n<line x1=\"30\" y1=\"80\" x2=\"350\" y2=\"80\"/>\n<line x1=\"105\" y1=\"30\" x2=\"105\" y2=\"350\"/>\n<line x1=\"30\" y1=\"105\" x2=\"350\" y2=\"105\"/>\n<line x1=\"130\" y1=\"30\" x2=\"130\" y2=\"350\"/>\n<line x1=\"30\" y1=\"130\" x2=\"350\" y2=\"130\"/>\n<line x1=\"155\" y1=\"30\" x2=\"155\" y2=\"350\"/>\n<line x1=\"30\" y1=\"155\" x2=\"350\" y2=\"155\"/>\n<line x1=\"180\" y1=\"30\" x2=\"180\" y2=\"350\"/>\n<line x1=\"30\" y1=\"180\" x2=\"350\" y2=\"180\"/>\n<line x1=\"205\" y1=\"30\" x2=\"205\" y2=\"350\"/>\n<line x1=\"30\" y1=\"205\" x2=\"350\" y2=\"205\"/>\n<line x1=\"230\" y1=\"30\" x2=\"230\" y2=\"350\"/>\n<line x1=\"30\" y1=\"230\" x2=\"350\" y2=\"230\"/>\n<line x1=\"255\" y1=\"30\" x2=\"255\" y2=\"350\"/>\n<line x1=\"30\" y1=\"255\" x2=\"350\" y2=\"255\"/>\n<line x1=\"280\" y1=\"30\" x2=\"280\" y2=\"350\"/>\n<line x1=\"30\" y1=\"280\" x2=\"350\" y2=\"280\"/>\n<line x1=\"305\" y1=\"30\" x2=\"305\" y2=\"350\"/>\n<line x1=\"30\" y1=\"305\" x2=\"350\" y2=\"305\"/>\n<line x1=\"330\" y1=\"30\" x2=\"330\" y2=\"350\"/>\n<line x1=\"30\" y1=\"330\" x2=\"350\" y2=\"330\"/>\n</g>\n<line x1=\"30\" y1=\"190\" x2=\"358\" y2=\"190\" stroke=\"#333\" stroke-width=\"1.5\" marker-end=\"url(#arr)\"/>\n<line x1=\"190\" y1=\"350\" x2=\"190\" y2=\"22\" stroke=\"#333\" stroke-width=\"1.5\" marker-end=\"url(#arr)\"/>\n<text x=\"40\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">−6</text>\n<text x=\"65\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">−5</text>\n<text x=\"90\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">−4</text>\n<text x=\"115\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">−3</text>\n<text x=\"140\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">−2</text>\n<text x=\"165\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">−1</text>\n<text x=\"215\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">1</text>\n<text x=\"240\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">2</text>\n<text x=\"265\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">3</text>\n<text x=\"290\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">4</text>\n<text x=\"315\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">5</text>\n<text x=\"340\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">6</text>\n<text x=\"180\" y=\"344\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">−6</text>\n<text x=\"180\" y=\"319\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">−5</text>\n<text x=\"180\" y=\"294\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">−4</text>\n<text x=\"180\" y=\"269\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">−3</text>\n<text x=\"180\" y=\"244\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">−2</text>\n<text x=\"180\" y=\"219\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">−1</text>\n<text x=\"180\" y=\"169\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">1</text>\n<text x=\"180\" y=\"144\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">2</text>\n<text x=\"180\" y=\"119\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">3</text>\n<text x=\"180\" y=\"94\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">4</text>\n<text x=\"180\" y=\"69\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">5</text>\n<text x=\"180\" y=\"44\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">6</text>\n<text x=\"195\" y=\"200\" font-size=\"12\" fill=\"#333\" font-weight=\"bold\">O</text>\n<text x=\"358\" y=\"183\" font-size=\"11\" fill=\"#333\" font-style=\"italic\">x</text>\n<text x=\"200\" y=\"25\" font-size=\"11\" fill=\"#333\" font-style=\"italic\">y</text>\n</svg>",
+      "questions": [
+        "a) Place les points A et B dans le repère ci-dessus.",
+        "b) Lis sur ton graphique les coordonnées du milieu M de [AB].",
+        "c) Vérifie par le calcul (moyennes des coordonnées)."
+      ]
+    },
+    "correction": "a) Les points sont placés à \\((-4 ; 2)\\) et \\((6 ; -2)\\) sur le repère.<br><br>b) Le milieu lu sur le graphique : <b>M(1 ; 0)</b>.<br><br>c) Vérification :<br>\\(x_M = \\dfrac{-4 + 6}{2} = 1\\) ; \\(y_M = \\dfrac{2 + (-2)}{2} = 0\\) → <b>M(1 ; 0)</b> ✓."
+  },
+  {
+    "date": "2026-07-14",
+    "theme": "Symétrie centrale dans un repère",
+    "cours": "<b>Symétrique d'un point</b> par rapport à un point O : le point \\(M'\\) tel que O soit le milieu de [MM'].<br><b>Dans un repère, par rapport à l'origine O :</b> si \\(M(x ; y)\\), alors son symétrique est \\(M'(-x ; -y)\\) (on change le signe des deux coordonnées).<br><b>La symétrie centrale conserve les longueurs, les angles et les aires.</b>",
+    "automatismes": [
+      {
+        "q": "Symétrique de \\(A(3 ; 2)\\) par rapport à O ?",
+        "r": "\\(A'(-3 ; -2)\\)."
+      },
+      {
+        "q": "La symétrie centrale conserve-t-elle les longueurs ?",
+        "r": "Oui."
+      },
+      {
+        "q": "Combien de centres de symétrie a un parallélogramme ?",
+        "r": "1 (intersection des diagonales)."
+      }
+    ],
+    "probleme": {
+      "titre": "Le drapeau du 14 juillet",
+      "enonce": "Tom dessine un drapeau dont trois sommets sont \\(D(2 ; 1)\\), \\(E(5 ; 1)\\) et \\(F(5 ; 3)\\). Pour le concours, il doit en tracer le <b>symétrique par rapport à l'origine O</b>.",
+      "repere": "<svg viewBox=\"0 0 380 380\" xmlns=\"http://www.w3.org/2000/svg\" style=\"max-width:340px;width:100%;display:block;margin:0.7rem auto;background:white;border:1px solid #ddd;border-radius:6px;\">\n<defs><marker id=\"arr\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"4\" orient=\"auto\">\n<polygon points=\"0,0 8,4 0,8\" fill=\"#333\"/></marker></defs>\n<g stroke=\"#e8e8e8\" stroke-width=\"1\">\n<line x1=\"30\" y1=\"30\" x2=\"30\" y2=\"350\"/>\n<line x1=\"30\" y1=\"30\" x2=\"350\" y2=\"30\"/>\n<line x1=\"55\" y1=\"30\" x2=\"55\" y2=\"350\"/>\n<line x1=\"30\" y1=\"55\" x2=\"350\" y2=\"55\"/>\n<line x1=\"80\" y1=\"30\" x2=\"80\" y2=\"350\"/>\n<line x1=\"30\" y1=\"80\" x2=\"350\" y2=\"80\"/>\n<line x1=\"105\" y1=\"30\" x2=\"105\" y2=\"350\"/>\n<line x1=\"30\" y1=\"105\" x2=\"350\" y2=\"105\"/>\n<line x1=\"130\" y1=\"30\" x2=\"130\" y2=\"350\"/>\n<line x1=\"30\" y1=\"130\" x2=\"350\" y2=\"130\"/>\n<line x1=\"155\" y1=\"30\" x2=\"155\" y2=\"350\"/>\n<line x1=\"30\" y1=\"155\" x2=\"350\" y2=\"155\"/>\n<line x1=\"180\" y1=\"30\" x2=\"180\" y2=\"350\"/>\n<line x1=\"30\" y1=\"180\" x2=\"350\" y2=\"180\"/>\n<line x1=\"205\" y1=\"30\" x2=\"205\" y2=\"350\"/>\n<line x1=\"30\" y1=\"205\" x2=\"350\" y2=\"205\"/>\n<line x1=\"230\" y1=\"30\" x2=\"230\" y2=\"350\"/>\n<line x1=\"30\" y1=\"230\" x2=\"350\" y2=\"230\"/>\n<line x1=\"255\" y1=\"30\" x2=\"255\" y2=\"350\"/>\n<line x1=\"30\" y1=\"255\" x2=\"350\" y2=\"255\"/>\n<line x1=\"280\" y1=\"30\" x2=\"280\" y2=\"350\"/>\n<line x1=\"30\" y1=\"280\" x2=\"350\" y2=\"280\"/>\n<line x1=\"305\" y1=\"30\" x2=\"305\" y2=\"350\"/>\n<line x1=\"30\" y1=\"305\" x2=\"350\" y2=\"305\"/>\n<line x1=\"330\" y1=\"30\" x2=\"330\" y2=\"350\"/>\n<line x1=\"30\" y1=\"330\" x2=\"350\" y2=\"330\"/>\n</g>\n<line x1=\"30\" y1=\"190\" x2=\"358\" y2=\"190\" stroke=\"#333\" stroke-width=\"1.5\" marker-end=\"url(#arr)\"/>\n<line x1=\"190\" y1=\"350\" x2=\"190\" y2=\"22\" stroke=\"#333\" stroke-width=\"1.5\" marker-end=\"url(#arr)\"/>\n<text x=\"40\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">−6</text>\n<text x=\"65\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">−5</text>\n<text x=\"90\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">−4</text>\n<text x=\"115\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">−3</text>\n<text x=\"140\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">−2</text>\n<text x=\"165\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">−1</text>\n<text x=\"215\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">1</text>\n<text x=\"240\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">2</text>\n<text x=\"265\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">3</text>\n<text x=\"290\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">4</text>\n<text x=\"315\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">5</text>\n<text x=\"340\" y=\"205\" font-size=\"11\" text-anchor=\"middle\" fill=\"#333\">6</text>\n<text x=\"180\" y=\"344\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">−6</text>\n<text x=\"180\" y=\"319\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">−5</text>\n<text x=\"180\" y=\"294\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">−4</text>\n<text x=\"180\" y=\"269\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">−3</text>\n<text x=\"180\" y=\"244\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">−2</text>\n<text x=\"180\" y=\"219\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">−1</text>\n<text x=\"180\" y=\"169\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">1</text>\n<text x=\"180\" y=\"144\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">2</text>\n<text x=\"180\" y=\"119\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">3</text>\n<text x=\"180\" y=\"94\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">4</text>\n<text x=\"180\" y=\"69\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">5</text>\n<text x=\"180\" y=\"44\" font-size=\"11\" text-anchor=\"end\" fill=\"#333\">6</text>\n<text x=\"195\" y=\"200\" font-size=\"12\" fill=\"#333\" font-weight=\"bold\">O</text>\n<text x=\"358\" y=\"183\" font-size=\"11\" fill=\"#333\" font-style=\"italic\">x</text>\n<text x=\"200\" y=\"25\" font-size=\"11\" fill=\"#333\" font-style=\"italic\">y</text>\n</svg>",
+      "questions": [
+        "a) Place D, E, F sur le repère.",
+        "b) Donne par le calcul les coordonnées de \\(D'\\), \\(E'\\), \\(F'\\), symétriques de D, E, F par rapport à O.",
+        "c) Place \\(D'\\), \\(E'\\), \\(F'\\) sur le repère et trace le drapeau symétrique.",
+        "d) Quelle est la longueur EF ? En déduire \\(E'F'\\)."
+      ]
+    },
+    "correction": "a) Points placés en (2;1), (5;1), (5;3).<br><br>b) On change le signe des deux coordonnées :<br><b>\\(D'(-2 ; -1)\\)</b>, <b>\\(E'(-5 ; -1)\\)</b>, <b>\\(F'(-5 ; -3)\\)</b>.<br><br>c) Les trois points sont placés et reliés.<br><br>d) E et F ont même abscisse 5 : \\(EF = 3 - 1 = 2\\) unités. Par conservation des longueurs, <b>\\(E'F' = 2\\) unités</b>."
+  },
+  {
+    "date": "2026-07-15",
+    "theme": "Addition de nombres relatifs",
+    "cours": "<b>Règles d'addition :</b><br>• Deux nombres de même signe : on additionne leurs distances à 0 et on garde le signe commun. Ex : \\((-3) + (-5) = -8\\).<br>• Deux nombres de signes contraires : on soustrait la plus petite distance à 0 de la plus grande, et on garde le signe du plus « éloigné » de 0. Ex : \\((-7) + (+4) = -3\\).",
+    "automatismes": [
+      {
+        "q": "\\((-3) + (-5)\\) ?",
+        "r": "\\(-8\\)"
+      },
+      {
+        "q": "\\((-7) + (+4)\\) ?",
+        "r": "\\(-3\\)"
+      },
+      {
+        "q": "\\((+9) + (-9)\\) ?",
+        "r": "\\(0\\)"
+      }
+    ],
+    "probleme": {
+      "titre": "Sous-marin en exploration",
+      "enonce": "Le <i>Nautilus</i> est à 180 m sous le niveau de la mer (donc à l'altitude −180 m). Il remonte de 75 m pour observer un banc de poissons, puis redescend de 32 m pour suivre une raie manta, puis remonte encore de 100 m pour respirer.",
+      "questions": [
+        "a) Écris l'opération à effectuer pour trouver sa nouvelle altitude.",
+        "b) Calcule cette altitude.",
+        "c) De combien doit-il encore monter pour atteindre la surface ?"
+      ]
+    },
+    "correction": "a) Altitude finale : \\((-180) + (+75) + (-32) + (+100)\\).<br><br>b) Regroupons positifs et négatifs : \\(+75+100 = +175\\) ; \\(-180-32 = -212\\). Somme : \\(-212 + 175 = \\mathbf{-37}\\). Le Nautilus est à <b>−37 m</b>.<br><br>c) Pour atteindre la surface (0 m), il doit encore monter de <b>37 m</b>."
+  },
+  {
+    "date": "2026-07-16",
+    "theme": "Soustraction de nombres relatifs",
+    "cours": "<b>Règle :</b> soustraire un nombre revient à ajouter son opposé.<br>\\[a - b = a + (-b)\\]Ex : \\(5 - (-3) = 5 + 3 = 8\\) ; \\(-4 - (-9) = -4 + 9 = 5\\).",
+    "automatismes": [
+      {
+        "q": "\\(5 - (-3)\\) ?",
+        "r": "\\(8\\)"
+      },
+      {
+        "q": "\\(-4 - (-9)\\) ?",
+        "r": "\\(5\\)"
+      },
+      {
+        "q": "\\(-6 - 8\\) ?",
+        "r": "\\(-14\\)"
+      }
+    ],
+    "probleme": {
+      "titre": "Le solde du compte bancaire",
+      "enonce": "Mehdi a 120 € sur son compte épargne ado. Au cours de la semaine :<br>• il reçoit son argent de poche (+ 30 €)<br>• il s'achète des écouteurs sans fil (− 65 €)<br>• il revend un vieux jeu vidéo (+ 18 €)<br>• son abonnement musical est prélevé (− 9,99 €).",
+      "questions": [
+        "a) Écris l'expression numérique correspondant au solde final.",
+        "b) Calcule ce solde."
+      ]
+    },
+    "correction": "a) Solde : \\(120 + 30 - 65 + 18 - 9{,}99\\).<br><br>b) Pas à pas :<br>\\(120 + 30 = 150\\) ; \\(150 - 65 = 85\\) ; \\(85 + 18 = 103\\) ; \\(103 - 9{,}99 = \\mathbf{93{,}01}\\) €."
+  },
+  {
+    "date": "2026-07-17",
+    "theme": "Somme des angles d'un triangle",
+    "cours": "<b>Propriété fondamentale :</b> dans tout triangle, la somme des trois angles vaut <b>180°</b>.<br>Cas particuliers :<br>• triangle équilatéral : chaque angle = 60° ;<br>• triangle rectangle : les deux angles aigus sont complémentaires (somme = 90°) ;<br>• triangle isocèle : les deux angles « à la base » sont égaux.",
+    "automatismes": [
+      {
+        "q": "Somme des angles d'un triangle ?",
+        "r": "180°."
+      },
+      {
+        "q": "Un triangle a deux angles de 50° et 60°. Quel est le 3ᵉ ?",
+        "r": "\\(180-50-60 = 70°\\)."
+      },
+      {
+        "q": "Mesure de chaque angle d'un triangle équilatéral ?",
+        "r": "60°."
+      }
+    ],
+    "probleme": {
+      "titre": "Le foulard triangulaire",
+      "enonce": "Le foulard que Laurianne a acheté en cadeau est un triangle <b>isocèle</b> dont l'angle au sommet principal vaut \\(\\widehat{A} = 40°\\).",
+      "questions": [
+        "a) Que peut-on dire des angles \\(\\widehat{B}\\) et \\(\\widehat{C}\\) (les deux à la base) ?",
+        "b) Calcule leur mesure.",
+        "c) Le foulard a-t-il aussi un angle droit ?"
+      ]
+    },
+    "correction": "a) Dans un triangle isocèle, les angles à la base sont égaux : \\(\\widehat{B} = \\widehat{C}\\).<br><br>b) \\(\\widehat{B} + \\widehat{C} = 180 - 40 = 140°\\), donc \\(\\widehat{B} = \\widehat{C} = \\mathbf{70°}\\).<br><br>c) Aucun angle ne mesure 90°. <b>Le triangle n'est pas rectangle.</b>"
+  },
+  {
+    "date": "2026-07-18",
+    "theme": "Calcul littéral — expression",
+    "cours": "<b>Conventions :</b> on supprime le signe \\(\\times\\) devant une lettre ou une parenthèse.<br>Ex : \\(3 \\times x = 3x\\) ; \\(a \\times b \\times 2 = 2ab\\).<br><b>Substitution :</b> pour calculer la valeur d'une expression, on remplace chaque lettre par sa valeur (en remettant les \\(\\times\\)) et on respecte les priorités.",
+    "automatismes": [
+      {
+        "q": "Simplifie \\(3 \\times x\\).",
+        "r": "\\(3x\\)"
+      },
+      {
+        "q": "Simplifie \\(a \\times b \\times 2\\).",
+        "r": "\\(2ab\\)"
+      },
+      {
+        "q": "Calcule \\(3x + 4\\) pour \\(x = 5\\).",
+        "r": "\\(19\\)"
+      }
+    ],
+    "probleme": {
+      "titre": "Le programme magique",
+      "enonce": "Tonton Karim propose à Yasmine ce jeu :<br>« Choisis un nombre secret. Multiplie-le par 4. Ajoute 6. Divise tout par 2. Dis-moi le résultat. »<br>Il prétend pouvoir <b>retrouver son nombre</b> !",
+      "questions": [
+        "a) Applique le programme à \\(x = 3\\). Quel est le résultat ?",
+        "b) Écris l'expression littérale donnant le résultat en fonction de \\(x\\).",
+        "c) Si Yasmine a obtenu 13, quel était son nombre secret ?"
+      ]
+    },
+    "correction": "a) Pour \\(x = 3\\) : \\(3 \\to 12 \\to 18 \\to 9\\). Résultat = <b>9</b>.<br><br>b) Expression : \\(\\dfrac{4x + 6}{2} = 2x + 3\\).<br><br>c) On cherche \\(2x + 3 = 13\\), donc \\(2x = 10\\), donc <b>\\(x = 5\\)</b>. Tonton retrouve le nombre en faisant : « résultat − 3, puis ÷ 2 »."
+  },
+  {
+    "date": "2026-07-19",
+    "theme": "Tester une égalité",
+    "cours": "<b>Tester une égalité</b> pour une valeur, c'est calculer séparément le membre de gauche et le membre de droite, puis comparer. Si les deux sont égaux, la valeur est <i>solution</i>.<br><b>Attention :</b> \\((-3)^2 = 9\\) (le carré d'un négatif est positif).",
+    "automatismes": [
+      {
+        "q": "\\(2x = 14\\) est-elle vraie pour \\(x = 7\\) ?",
+        "r": "Oui : \\(2 \\times 7 = 14\\) ✓."
+      },
+      {
+        "q": "\\(3x + 1 = 10\\) pour \\(x = 4\\) ?",
+        "r": "Non : \\(13 \\neq 10\\)."
+      },
+      {
+        "q": "Calcule \\(x^2\\) pour \\(x = -3\\).",
+        "r": "\\(9\\)"
+      }
+    ],
+    "probleme": {
+      "titre": "Vérification d'une équation",
+      "enonce": "Lila trouve dans son cahier l'égalité : \\(5x - 3 = 2x + 9\\).",
+      "questions": [
+        "a) L'égalité est-elle vraie pour \\(x = 2\\) ? Justifie en calculant les deux membres.",
+        "b) Et pour \\(x = 4\\) ?",
+        "c) On dit que 4 est <b>solution</b>. Que peut-on dire de 2 ?"
+      ]
+    },
+    "correction": "a) Pour \\(x = 2\\) : gauche = \\(5 \\times 2 - 3 = 7\\) ; droite = \\(2 \\times 2 + 9 = 13\\). \\(7 \\neq 13\\) → <b>égalité fausse</b>.<br><br>b) Pour \\(x = 4\\) : gauche = \\(20 - 3 = 17\\) ; droite = \\(8 + 9 = 17\\). \\(17 = 17\\) → <b>égalité vraie</b>.<br><br>c) <b>2 n'est pas solution</b> de l'équation."
+  },
+  {
+    "date": "2026-07-20",
+    "theme": "Angles et parallélisme",
+    "cours": "Quand deux droites sont coupées par une sécante, on observe :<br>• les <b>angles alternes-internes</b> (de part et d'autre de la sécante, entre les deux droites) ;<br>• les <b>angles correspondants</b> (du même côté de la sécante, l'un au-dessus, l'autre en dessous).<br><b>Propriété :</b> si les droites sont parallèles, alors les angles alternes-internes (et les correspondants) sont <b>égaux</b>. Et réciproquement.",
+    "automatismes": [
+      {
+        "q": "Angles alternes-internes de droites parallèles ?",
+        "r": "Égaux."
+      },
+      {
+        "q": "Angles correspondants de droites parallèles ?",
+        "r": "Égaux."
+      },
+      {
+        "q": "Angles opposés par le sommet ?",
+        "r": "Égaux."
+      }
+    ],
+    "probleme": {
+      "titre": "Les rails de train",
+      "enonce": "Une route droite (la sécante) coupe deux rails de train \\((d_1)\\) et \\((d_2)\\). Avec \\((d_1)\\) elle forme un angle de 65° ; avec \\((d_2)\\) un angle de 65° également (dans la position « angles correspondants »).",
+      "questions": [
+        "a) Que peut-on en déduire pour les rails \\((d_1)\\) et \\((d_2)\\) ?",
+        "b) Énonce précisément la propriété utilisée."
+      ]
+    },
+    "correction": "a) Les angles correspondants sont égaux, donc <b>\\((d_1)\\) et \\((d_2)\\) sont parallèles</b> (heureusement, sinon le train déraillerait !).<br><br>b) <b>Propriété :</b> « Si deux droites coupées par une sécante forment des angles correspondants de même mesure, alors elles sont parallèles. »"
+  },
+  {
+    "date": "2026-07-21",
+    "theme": "Fractions égales",
+    "cours": "<b>Propriété fondamentale des fractions :</b><br>\\[\\dfrac{a}{b} = \\dfrac{a \\times k}{b \\times k} = \\dfrac{a \\div k}{b \\div k}\\](pour tout nombre \\(k\\) non nul). Cela permet de <b>simplifier</b> ou de <b>mettre au même dénominateur</b>.",
+    "automatismes": [
+      {
+        "q": "Simplifie \\(\\dfrac{12}{18}\\).",
+        "r": "\\(\\dfrac{2}{3}\\) (÷ 6)."
+      },
+      {
+        "q": "\\(\\dfrac{3}{4}\\) et \\(\\dfrac{9}{12}\\) sont-elles égales ?",
+        "r": "Oui."
+      },
+      {
+        "q": "Écris \\(\\dfrac{5}{7}\\) en dénominateur 21.",
+        "r": "\\(\\dfrac{15}{21}\\)"
+      }
+    ],
+    "probleme": {
+      "titre": "Mousse au chocolat — 3 cousines, 3 recettes",
+      "enonce": "Pour faire leur mousse au chocolat préférée, trois cousines utilisent chacune des tablettes de chocolat :<br>• Inès en utilise \\(\\dfrac{3}{4}\\) de tablette ;<br>• Julia en utilise \\(\\dfrac{6}{8}\\) ;<br>• Léa en utilise \\(\\dfrac{9}{16}\\).",
+      "questions": [
+        "a) Inès et Julia mettent-elles la même quantité ? Justifie.",
+        "b) Léa met-elle autant de chocolat ? Justifie (réduis au même dénominateur)."
+      ]
+    },
+    "correction": "a) \\(\\dfrac{6}{8} = \\dfrac{6 \\div 2}{8 \\div 2} = \\dfrac{3}{4}\\). <b>Inès et Julia mettent la même quantité.</b><br><br>b) Au dénominateur 16 : \\(\\dfrac{3}{4} = \\dfrac{12}{16}\\). Or \\(\\dfrac{12}{16} > \\dfrac{9}{16}\\), donc <b>Léa met moins de chocolat</b> que ses cousines."
+  },
+  {
+    "date": "2026-07-22",
+    "theme": "Addition de fractions",
+    "cours": "<b>Même dénominateur :</b> on additionne les numérateurs, on garde le dénominateur :<br>\\[\\dfrac{a}{n} + \\dfrac{b}{n} = \\dfrac{a+b}{n}\\]<b>Dénominateurs différents :</b> on les met d'abord au même dénominateur.",
+    "automatismes": [
+      {
+        "q": "\\(\\dfrac{2}{7} + \\dfrac{3}{7}\\) ?",
+        "r": "\\(\\dfrac{5}{7}\\)"
+      },
+      {
+        "q": "\\(\\dfrac{1}{4} + \\dfrac{1}{2}\\) ?",
+        "r": "\\(\\dfrac{3}{4}\\)"
+      },
+      {
+        "q": "\\(\\dfrac{5}{6} - \\dfrac{1}{3}\\) ?",
+        "r": "\\(\\dfrac{1}{2}\\)"
+      }
+    ],
+    "probleme": {
+      "titre": "Le gâteau d'anniversaire",
+      "enonce": "Pour préparer le gâteau de Mila, Lucas utilise \\(\\dfrac{1}{2}\\) sachet de sucre pour la pâte. Mila en ajoute \\(\\dfrac{1}{8}\\) de sachet pour la décoration au sucre glace.",
+      "questions": [
+        "a) Quelle fraction de sachet ont-ils utilisée en tout ?",
+        "b) Quelle fraction de sachet reste-t-il pour le prochain gâteau ?"
+      ]
+    },
+    "correction": "a) Total : \\(\\dfrac{1}{2} + \\dfrac{1}{8} = \\dfrac{4}{8} + \\dfrac{1}{8} = \\mathbf{\\dfrac{5}{8}}\\).<br><br>b) Reste : \\(1 - \\dfrac{5}{8} = \\dfrac{8}{8} - \\dfrac{5}{8} = \\mathbf{\\dfrac{3}{8}}\\) de sachet."
+  },
+  {
+    "date": "2026-07-23",
+    "theme": "Multiplication de fractions",
+    "cours": "<b>Règle :</b> on multiplie les numérateurs entre eux et les dénominateurs entre eux :<br>\\[\\dfrac{a}{b} \\times \\dfrac{c}{d} = \\dfrac{a \\times c}{b \\times d}\\]« Prendre \\(\\dfrac{p}{q}\\) <i>de</i> quelque chose », c'est multiplier par \\(\\dfrac{p}{q}\\).",
+    "automatismes": [
+      {
+        "q": "\\(\\dfrac{2}{3} \\times \\dfrac{5}{7}\\) ?",
+        "r": "\\(\\dfrac{10}{21}\\)"
+      },
+      {
+        "q": "\\(\\dfrac{3}{4} \\times 12\\) ?",
+        "r": "\\(9\\)"
+      },
+      {
+        "q": "\\(\\dfrac{1}{2}\\) de \\(\\dfrac{1}{3}\\) ?",
+        "r": "\\(\\dfrac{1}{6}\\)"
+      }
+    ],
+    "probleme": {
+      "titre": "Le jardin créole",
+      "enonce": "Le jardin de Mr Bertin, à Schœlcher, mesure 120 m². Il consacre \\(\\dfrac{2}{5}\\) du jardin à un potager créole, et dans ce potager il réserve \\(\\dfrac{3}{4}\\) à ses tomates et à ses giraumons.",
+      "questions": [
+        "a) Quelle est l'aire du potager ?",
+        "b) Quelle fraction du jardin total est occupée par tomates + giraumons ?",
+        "c) Quelle est leur aire (en m²) ?"
+      ]
+    },
+    "correction": "a) Aire potager : \\(\\dfrac{2}{5} \\times 120 = \\mathbf{48}\\) m².<br><br>b) Fraction : \\(\\dfrac{3}{4} \\times \\dfrac{2}{5} = \\dfrac{6}{20} = \\mathbf{\\dfrac{3}{10}}\\) du jardin total.<br><br>c) Aire : \\(\\dfrac{3}{4} \\times 48 = \\mathbf{36}\\) m² (ou \\(\\dfrac{3}{10} \\times 120 = 36\\) m²)."
+  },
+  {
+    "date": "2026-07-24",
+    "theme": "Pourcentages",
+    "cours": "<b>\\(p\\) %</b> d'une quantité = \\(\\dfrac{p}{100}\\) de cette quantité.<br>Ex : 25 % de 80 = \\(\\dfrac{25}{100} \\times 80 = 20\\).<br><b>Augmenter de 30 %</b> : multiplier par \\(1{,}30\\). <b>Diminuer de 30 %</b> : multiplier par \\(0{,}70\\).<br><b>Attention :</b> les pourcentages successifs ne s'additionnent pas !",
+    "automatismes": [
+      {
+        "q": "25 % de 80 ?",
+        "r": "20"
+      },
+      {
+        "q": "10 % de 150 ?",
+        "r": "15"
+      },
+      {
+        "q": "10 sur 50 = ? %",
+        "r": "20 %"
+      }
+    ],
+    "probleme": {
+      "titre": "Les soldes d'été",
+      "enonce": "Les baskets que vise Léna coûtent 89 €. Le magasin annonce une première remise de 30 %. Une semaine plus tard, en deuxième démarque, le prix soldé est encore réduit de 20 %.",
+      "questions": [
+        "a) Calcule le prix après la première remise.",
+        "b) Calcule le prix final après la seconde démarque.",
+        "c) Quel est le pourcentage global de réduction par rapport au prix initial ? Est-ce 50 % ?"
+      ]
+    },
+    "correction": "a) Première remise : \\(89 \\times 0{,}70 = 62{,}30\\) €.<br><br>b) Seconde démarque : \\(62{,}30 \\times 0{,}80 = \\mathbf{49{,}84}\\) €.<br><br>c) Économie totale : \\(89 - 49{,}84 = 39{,}16\\) €. Pourcentage : \\(\\dfrac{39{,}16}{89} \\approx 0{,}44 = \\mathbf{44}\\) % (<b>pas 50 %</b> ! Les pourcentages ne s'additionnent pas car la 2ᵉ remise s'applique au prix déjà réduit)."
+  },
+  {
+    "date": "2026-07-25",
+    "theme": "Parallélogramme",
+    "cours": "<b>Définition :</b> quadrilatère dont les côtés opposés sont parallèles deux à deux.<br><b>Propriétés :</b><br>• les côtés opposés sont de même longueur ;<br>• les angles opposés sont égaux ;<br>• les diagonales se coupent en leur milieu ;<br>• aire = base × hauteur (perpendiculaire à cette base).",
+    "automatismes": [
+      {
+        "q": "Les diagonales d'un parallélogramme se coupent en…",
+        "r": "leur milieu."
+      },
+      {
+        "q": "Aire d'un parallélogramme de base 6 et hauteur 4 ?",
+        "r": "24."
+      },
+      {
+        "q": "Les côtés opposés d'un parallélogramme sont…",
+        "r": "parallèles et de même longueur."
+      }
+    ],
+    "probleme": {
+      "titre": "Le terrain à engazonner",
+      "enonce": "Le jardin de Madame Toussaint a la forme d'un parallélogramme \\(ABCD\\) avec \\(AB = 24\\) m et la hauteur issue de \\(D\\) sur \\([AB]\\) mesure 15 m. Elle veut le faire engazonner.",
+      "questions": [
+        "a) Calcule l'aire du terrain.",
+        "b) Le gazon coûte 4,50 € le m². Calcule le coût total."
+      ]
+    },
+    "correction": "a) Aire = \\(\\text{base} \\times \\text{hauteur} = 24 \\times 15 = \\mathbf{360}\\) m².<br><br>b) Coût : \\(360 \\times 4{,}50 = \\mathbf{1\\,620}\\) €."
+  },
+  {
+    "date": "2026-07-26",
+    "theme": "Parallélogrammes particuliers",
+    "cours": "Tous les rectangles, losanges et carrés sont des parallélogrammes <b>particuliers</b> :<br>• <b>rectangle :</b> 4 angles droits ↔ diagonales <i>de même longueur</i> ;<br>• <b>losange :</b> 4 côtés de même longueur ↔ diagonales <i>perpendiculaires</i> ;<br>• <b>carré :</b> rectangle <i>ET</i> losange ↔ diagonales de même longueur ET perpendiculaires.",
+    "automatismes": [
+      {
+        "q": "Parallélogramme à diagonales perpendiculaires = ?",
+        "r": "Losange."
+      },
+      {
+        "q": "Parallélogramme à diagonales de même longueur = ?",
+        "r": "Rectangle."
+      },
+      {
+        "q": "Diagonales perpendiculaires ET de même longueur = ?",
+        "r": "Carré."
+      }
+    ],
+    "probleme": {
+      "titre": "Quel quadrilatère ?",
+      "enonce": "ABCD est un quadrilatère dont les diagonales [AC] et [BD] se coupent en O. On donne : \\(OA = OC = 5\\) cm ; \\(OB = OD = 5\\) cm ; et \\((AC) \\perp (BD)\\).",
+      "questions": [
+        "a) Justifie qu'ABCD est un parallélogramme.",
+        "b) Justifie que c'est aussi un rectangle.",
+        "c) Justifie que c'est aussi un losange.",
+        "d) Conclus : quelle est la nature précise d'ABCD ?"
+      ]
+    },
+    "correction": "a) Les diagonales se coupent en leur milieu O → <b>parallélogramme</b>.<br><br>b) \\(AC = OA + OC = 10\\) cm ; \\(BD = OB + OD = 10\\) cm. Diagonales de même longueur → <b>rectangle</b>.<br><br>c) Diagonales perpendiculaires → <b>losange</b>.<br><br>d) Rectangle ET losange → ABCD est un <b>carré</b>."
+  },
+  {
+    "date": "2026-07-27",
+    "theme": "Aires : rectangle, losange, carré",
+    "cours": "<b>Rectangle :</b> \\(\\mathcal{A} = L \\times \\ell\\).<br><b>Carré :</b> \\(\\mathcal{A} = c^2\\) (côté au carré).<br><b>Losange :</b> \\(\\mathcal{A} = \\dfrac{D \\times d}{2}\\) (produit des diagonales divisé par 2).",
+    "automatismes": [
+      {
+        "q": "Aire d'un carré de côté 7 cm ?",
+        "r": "\\(49\\) cm²"
+      },
+      {
+        "q": "Aire d'un losange de diagonales 6 et 8 cm ?",
+        "r": "\\(\\dfrac{6 \\times 8}{2} = 24\\) cm²"
+      },
+      {
+        "q": "Aire d'un rectangle de 5 × 3 cm ?",
+        "r": "\\(15\\) cm²"
+      }
+    ],
+    "probleme": {
+      "titre": "Les carreaux de la terrasse",
+      "enonce": "Tonton Émile veut refaire le sol de sa terrasse de \\(8\\) m sur \\(6\\) m. Il hésite entre deux modèles de carreaux :<br>• <b>Modèle A :</b> carrés de 40 cm de côté, à 4 € pièce ;<br>• <b>Modèle B :</b> losanges de diagonales 50 cm et 40 cm, à 3 € pièce.",
+      "questions": [
+        "a) Calcule l'aire de la terrasse en cm².",
+        "b) Combien de carreaux du modèle A faut-il ? Quel sera le coût ?",
+        "c) Combien de carreaux du modèle B faut-il ? Quel sera le coût ?",
+        "d) Quel modèle revient le moins cher ?"
+      ]
+    },
+    "correction": "a) Terrasse : 800 cm × 600 cm = <b>480 000 cm²</b>.<br><br>b) Aire d'un carré A : \\(40^2 = 1\\,600\\) cm². Nombre : \\(480\\,000 \\div 1\\,600 = \\mathbf{300}\\) carreaux. Coût : \\(300 \\times 4 = \\mathbf{1\\,200}\\) €.<br><br>c) Aire d'un losange B : \\(\\dfrac{50 \\times 40}{2} = 1\\,000\\) cm². Nombre : \\(480\\,000 \\div 1\\,000 = \\mathbf{480}\\) carreaux. Coût : \\(480 \\times 3 = \\mathbf{1\\,440}\\) €.<br><br>d) Le <b>modèle A est moins cher</b> (1 200 € contre 1 440 €)."
+  },
+  {
+    "date": "2026-07-28",
+    "theme": "Symétrie axiale",
+    "cours": "<b>Symétrique d'un point</b> M par rapport à une droite \\((d)\\) : c'est le point \\(M'\\) tel que \\((d)\\) soit la <i>médiatrice</i> de [MM'].<br>Si M est <b>sur</b> \\((d)\\), alors \\(M' = M\\).<br><b>La symétrie axiale conserve longueurs, angles et aires.</b>",
+    "automatismes": [
+      {
+        "q": "La symétrie axiale conserve-t-elle les longueurs ?",
+        "r": "Oui."
+      },
+      {
+        "q": "L'axe de symétrie d'un segment [AB] est…",
+        "r": "sa médiatrice."
+      },
+      {
+        "q": "Combien d'axes de symétrie a un carré ?",
+        "r": "4."
+      }
+    ],
+    "probleme": {
+      "titre": "Le logo du club journal",
+      "enonce": "Le club journal du collège dessine un logo en forme de papillon. Le corps du papillon est sur l'axe \\((d)\\), et l'aile gauche est un triangle ABC avec \\(AB = 5\\) cm, \\(BC = 4\\) cm, \\(AC = 3\\) cm et son aire vaut 6 cm². L'aile droite \\(A'B'C'\\) est obtenue par symétrie d'axe \\((d)\\).",
+      "questions": [
+        "a) Quelles sont les longueurs \\(A'B'\\), \\(B'C'\\), \\(A'C'\\) ? Justifie.",
+        "b) Que vaut l'aire du triangle \\(A'B'C'\\) ? Justifie.",
+        "c) Quel est le périmètre du logo entier (les deux ailes ensemble) ?"
+      ]
+    },
+    "correction": "a) La symétrie axiale conserve les longueurs : <b>\\(A'B' = 5\\) cm, \\(B'C' = 4\\) cm, \\(A'C' = 3\\) cm</b>.<br><br>b) Elle conserve aussi les aires : aire de \\(A'B'C'\\) = <b>6 cm²</b>.<br><br>c) Périmètre d'une aile : \\(5 + 4 + 3 = 12\\) cm. Périmètre des deux ailes : <b>24 cm</b> (en pratique, les côtés communs à l'axe ne sont comptés qu'une fois si les ailes sont collées — mais ici elles sont symétriques par rapport à un axe et indépendantes : on additionne)."
+  },
+  {
+    "date": "2026-07-29",
+    "theme": "Hauteurs d'un triangle",
+    "cours": "<b>Hauteur</b> d'un triangle issue d'un sommet : c'est la <i>droite</i> (ou le <i>segment</i>) passant par ce sommet et perpendiculaire au côté opposé.<br><b>Aire d'un triangle :</b> \\(\\mathcal{A} = \\dfrac{\\text{base} \\times \\text{hauteur}}{2}\\), où la « hauteur » est celle qui correspond à la base choisie.",
+    "automatismes": [
+      {
+        "q": "Combien de hauteurs a un triangle ?",
+        "r": "3 (une par sommet)."
+      },
+      {
+        "q": "Dans un triangle rectangle, deux hauteurs sont…",
+        "r": "les deux côtés de l'angle droit."
+      },
+      {
+        "q": "Aire d'un triangle de base 8 et hauteur 5 ?",
+        "r": "20."
+      }
+    ],
+    "probleme": {
+      "titre": "La voile du voilier",
+      "enonce": "Sur le voilier de Maïa, la grand-voile a la forme d'un triangle rectangle \\(ABC\\), rectangle en B. On donne : \\(AB = 4\\) m (le mât) et \\(BC = 7{,}5\\) m (la bôme). Le tissu coûte 22 € le m².",
+      "questions": [
+        "a) Quelle est la hauteur du triangle relative à la base [BC] ?",
+        "b) Calcule l'aire de la voile.",
+        "c) Calcule son coût.",
+        "d) Si l'on double \\(AB\\) <i>et</i> \\(BC\\), par combien l'aire est-elle multipliée ?"
+      ]
+    },
+    "correction": "a) Dans un triangle rectangle, le côté \\([AB]\\) est <b>perpendiculaire</b> à \\([BC]\\) : c'est la <b>hauteur relative à [BC]</b>, soit 4 m.<br><br>b) Aire = \\(\\dfrac{BC \\times AB}{2} = \\dfrac{7{,}5 \\times 4}{2} = \\mathbf{15}\\) m².<br><br>c) Coût : \\(15 \\times 22 = \\mathbf{330}\\) €.<br><br>d) Nouvelle aire : \\(\\dfrac{15 \\times 8}{2} = 60\\) m². L'aire est multipliée par <b>4</b> (longueur × 2 → aire × \\(2^2\\))."
+  },
+  {
+    "date": "2026-07-30",
+    "theme": "Le cube — volume et aire",
+    "cours": "<b>Cube</b> d'arête \\(a\\) :<br>• 6 faces carrées identiques ;<br>• <b>volume :</b> \\(V = a \\times a \\times a = a^3\\) ;<br>• <b>aire totale :</b> \\(\\mathcal{A} = 6 \\times a^2\\) ;<br>• <b>patron :</b> 6 carrés disposés en croix (11 patrons différents sont possibles).",
+    "automatismes": [
+      {
+        "q": "Volume d'un cube d'arête 5 cm ?",
+        "r": "\\(125\\) cm³"
+      },
+      {
+        "q": "Combien de faces a un cube ?",
+        "r": "6."
+      },
+      {
+        "q": "Aire totale d'un cube d'arête 2 cm ?",
+        "r": "\\(6 \\times 4 = 24\\) cm²"
+      }
+    ],
+    "probleme": {
+      "titre": "Le cube de Rubik géant",
+      "enonce": "Pour le marché de Noël, l'atelier fabrique un Rubik's Cube géant en bois, d'arête 30 cm. On veut le peindre uniquement sur ses faces extérieures.",
+      "questions": [
+        "a) Calcule l'aire totale à peindre (en cm² puis en m²).",
+        "b) Calcule le volume du cube (en cm³ puis en dm³).",
+        "c) Un pot de peinture couvre 3 m². Combien de pots faut-il ?"
+      ]
+    },
+    "correction": "a) Aire : \\(\\mathcal{A} = 6 \\times 30^2 = 6 \\times 900 = 5\\,400\\) cm² = <b>0,54 m²</b>.<br><br>b) Volume : \\(V = 30^3 = 27\\,000\\) cm³ = <b>27 dm³</b>.<br><br>c) \\(0{,}54 \\div 3 = 0{,}18\\) → <b>1 seul pot</b> suffit largement."
+  },
+  {
+    "date": "2026-07-31",
+    "theme": "Probabilité d'un événement",
+    "cours": "<b>Probabilité d'un événement</b> dans une expérience aléatoire <i>équiprobable</i> :<br>\\[P(A) = \\dfrac{\\text{nombre d'issues favorables}}{\\text{nombre d'issues totales}}\\]<b>Bornes :</b> \\(0 \\le P(A) \\le 1\\). Événement impossible : 0. Événement certain : 1.",
+    "automatismes": [
+      {
+        "q": "Probabilité d'obtenir pile avec une pièce équilibrée ?",
+        "r": "\\(\\dfrac{1}{2}\\)"
+      },
+      {
+        "q": "Probabilité d'obtenir 6 avec un dé équilibré ?",
+        "r": "\\(\\dfrac{1}{6}\\)"
+      },
+      {
+        "q": "Probabilité d'un événement certain ?",
+        "r": "1."
+      }
+    ],
+    "probleme": {
+      "titre": "Tirage de carte",
+      "enonce": "On tire au hasard une carte dans un jeu de 32 cartes (4 couleurs : ♠ ♥ ♦ ♣ ; 8 cartes par couleur : 7, 8, 9, 10, V, D, R, As).",
+      "questions": [
+        "a) Probabilité de tirer un cœur ?",
+        "b) Probabilité de tirer un Roi ?",
+        "c) Probabilité de tirer le Roi de cœur ?"
+      ]
+    },
+    "correction": "Toutes les cartes sont équiprobables (32 issues).<br><br>a) Il y a 8 cœurs. \\(P = \\dfrac{8}{32} = \\mathbf{\\dfrac{1}{4}}\\).<br><br>b) Il y a 4 Rois. \\(P = \\dfrac{4}{32} = \\mathbf{\\dfrac{1}{8}}\\).<br><br>c) Une seule carte favorable. \\(P = \\mathbf{\\dfrac{1}{32}}\\)."
+  },
+  {
+    "date": "2026-08-01",
+    "theme": "Algorithme — boucle « répéter »",
+    "cours": "<b>Boucle</b> « répéter \\(n\\) fois » : on exécute les instructions \\(n\\) fois.<br><b>Polygone régulier</b> à \\(n\\) côtés : l'angle à tourner à chaque sommet vaut \\(\\dfrac{360°}{n}\\).<br>Ex : carré → 90° ; triangle équilatéral → 120° ; pentagone régulier → 72°.",
+    "automatismes": [
+      {
+        "q": "Que fait « répéter 4 fois : avancer 5 ; tourner 90° » ?",
+        "r": "Un carré de côté 5."
+      },
+      {
+        "q": "Combien d'angles a un hexagone régulier ?",
+        "r": "6."
+      },
+      {
+        "q": "Angle de rotation pour un hexagone régulier ?",
+        "r": "\\(360 \\div 6 = 60°\\)."
+      }
+    ],
+    "probleme": {
+      "titre": "Programmer une étoile avec Scratch",
+      "enonce": "Sur Scratch, le club info veut programmer son lutin pour dessiner différents polygones réguliers.",
+      "questions": [
+        "a) Écris un algorithme (en français) qui dessine un triangle équilatéral de côté 80.",
+        "b) Adapte-le pour dessiner un pentagone régulier de côté 60.",
+        "c) Que dessine l'algorithme « répéter 8 fois : avancer 50 ; tourner de 45° » ?"
+      ]
+    },
+    "correction": "a) « Répéter 3 fois : avancer de 80 ; tourner de \\(120°\\) ».<br><br>b) « Répéter 5 fois : avancer de 60 ; tourner de \\(72°\\) ».<br><br>c) Avec 8 répétitions et rotations de 45°, on obtient un <b>octogone régulier</b> de côté 50."
+  },
+  {
+    "date": "2026-08-02",
+    "theme": "Fractions et pourcentages",
+    "cours": "Pour prendre \\(\\dfrac{p}{q}\\) <i>d'une quantité</i> : multiplier la quantité par \\(\\dfrac{p}{q}\\).<br>Pour prendre \\(p\\) % <i>d'une quantité</i> : multiplier par \\(\\dfrac{p}{100}\\).<br>Correspondances usuelles : \\(\\dfrac{1}{2} = 50\\) % ; \\(\\dfrac{1}{4} = 25\\) % ; \\(\\dfrac{3}{4} = 75\\) % ; \\(\\dfrac{1}{10} = 10\\) %.",
+    "automatismes": [
+      {
+        "q": "\\(\\dfrac{3}{5} \\times 25\\) ?",
+        "r": "15"
+      },
+      {
+        "q": "60 % de 80 ?",
+        "r": "48"
+      },
+      {
+        "q": "Quelle fraction représente 75 % ?",
+        "r": "\\(\\dfrac{3}{4}\\)"
+      }
+    ],
+    "probleme": {
+      "titre": "L'enquête lecture",
+      "enonce": "Au collège, sur 480 élèves, \\(\\dfrac{5}{8}\\) ont lu au moins un livre cet été. Parmi ces lecteurs, 40 % préfèrent les romans policiers.",
+      "questions": [
+        "a) Combien d'élèves ont lu au moins un livre ?",
+        "b) Combien d'élèves préfèrent les romans policiers ?",
+        "c) Quel pourcentage des élèves du collège cela représente-t-il ?"
+      ]
+    },
+    "correction": "a) Lecteurs : \\(\\dfrac{5}{8} \\times 480 = \\mathbf{300}\\) élèves.<br><br>b) Policiers : \\(40\\,\\% \\times 300 = 0{,}4 \\times 300 = \\mathbf{120}\\) élèves.<br><br>c) \\(\\dfrac{120}{480} = 0{,}25 = \\mathbf{25}\\) % du collège."
+  },
+  {
+    "date": "2026-08-03",
+    "theme": "Aire et périmètre",
+    "cours": "<b>Périmètre</b> = longueur du tour.<br><b>Aire</b> = mesure de la surface intérieure.<br>Rectangle : \\(P = 2(L + \\ell)\\) ; \\(\\mathcal{A} = L \\times \\ell\\).<br>Carré : \\(P = 4c\\) ; \\(\\mathcal{A} = c^2\\).<br>Triangle : \\(\\mathcal{A} = \\dfrac{b \\times h}{2}\\).",
+    "automatismes": [
+      {
+        "q": "Aire d'un carré de côté 7 cm ?",
+        "r": "49 cm²"
+      },
+      {
+        "q": "Périmètre d'un rectangle 5 × 3 cm ?",
+        "r": "16 cm"
+      },
+      {
+        "q": "Aire d'un triangle de base 8 cm et hauteur 5 cm ?",
+        "r": "20 cm²"
+      }
+    ],
+    "probleme": {
+      "titre": "Le jardin à clôturer",
+      "enonce": "M. Pavot a un jardin rectangulaire de 25 m de longueur et 18 m de largeur. Il veut le clôturer en laissant une ouverture de 1,20 m pour le portail.",
+      "questions": [
+        "a) Calcule le périmètre du jardin.",
+        "b) Quelle longueur de clôture lui faut-il (sans le portail) ?",
+        "c) Quelle est l'aire du jardin en m² ? Et en ares (1 are = 100 m²) ?"
+      ]
+    },
+    "correction": "a) Périmètre : \\(P = 2 \\times (25 + 18) = \\mathbf{86}\\) m.<br><br>b) Longueur de clôture : \\(86 - 1{,}20 = \\mathbf{84{,}80}\\) m.<br><br>c) Aire : \\(25 \\times 18 = \\mathbf{450}\\) m², soit <b>4,5 ares</b>."
+  },
+  {
+    "date": "2026-08-04",
+    "theme": "Relatifs et calcul littéral",
+    "cours": "<b>Multiplication de relatifs :</b><br>• \\((+) \\times (+) = (+)\\) ; \\((-) \\times (-) = (+)\\) ; \\((+) \\times (-) = (-)\\).<br><b>Substitution :</b> remplacer une lettre par un nombre négatif → mettre des parenthèses.<br>Ex : \\(3x - 5\\) pour \\(x = -2\\) donne \\(3 \\times (-2) - 5 = -11\\).",
+    "automatismes": [
+      {
+        "q": "\\((-3) \\times 4\\) ?",
+        "r": "\\(-12\\)"
+      },
+      {
+        "q": "\\((-5) \\times (-2)\\) ?",
+        "r": "\\(+10\\)"
+      },
+      {
+        "q": "\\(3x - 5\\) pour \\(x = -2\\) ?",
+        "r": "\\(-11\\)"
+      }
+    ],
+    "probleme": {
+      "titre": "Programme avec négatifs",
+      "enonce": "Voici un nouveau programme de calcul :<br>• Choisir un nombre.<br>• Lui ajouter 3.<br>• Multiplier le résultat par −2.<br>• Soustraire 1.",
+      "questions": [
+        "a) Applique-le à \\(x = 4\\).",
+        "b) Applique-le à \\(x = -5\\).",
+        "c) Écris l'expression littérale du résultat en fonction de \\(x\\), puis développe."
+      ]
+    },
+    "correction": "a) Pour \\(x = 4\\) : \\(4 \\to 7 \\to -14 \\to \\mathbf{-15}\\).<br><br>b) Pour \\(x = -5\\) : \\(-5 \\to -2 \\to 4 \\to \\mathbf{3}\\).<br><br>c) Expression : \\(-2(x+3) - 1 = -2x - 6 - 1 = \\mathbf{-2x - 7}\\). Vérif pour \\(x = 4\\) : \\(-2 \\times 4 - 7 = -15\\) ✓."
+  },
+  {
+    "date": "2026-08-05",
+    "theme": "Volumes — conversions",
+    "cours": "<b>Échelle de conversion des volumes :</b><br>• \\(1\\) m³ = \\(1\\,000\\) dm³ = \\(1\\,000\\,000\\) cm³<br>• \\(1\\) dm³ = \\(1\\) L ; \\(1\\) cm³ = \\(1\\) mL<br>• \\(1\\) m³ = \\(1\\,000\\) L<br>Pour les volumes, le facteur de conversion entre deux unités <b>cube</b> celui des longueurs.",
+    "automatismes": [
+      {
+        "q": "1 m³ = ? L",
+        "r": "1 000 L"
+      },
+      {
+        "q": "Convertis 2,5 L en cL.",
+        "r": "250 cL"
+      },
+      {
+        "q": "Convertis 3 dm³ en cm³.",
+        "r": "3 000 cm³"
+      }
+    ],
+    "probleme": {
+      "titre": "Piscine à remplir",
+      "enonce": "Une piscine a la forme d'un pavé droit de 10 m × 4 m × 1,5 m (profondeur).",
+      "questions": [
+        "a) Calcule son volume en m³.",
+        "b) Convertis ce volume en L.",
+        "c) Le robinet débite 20 L par minute. Combien d'heures faut-il pour la remplir ?"
+      ]
+    },
+    "correction": "a) \\(V = 10 \\times 4 \\times 1{,}5 = \\mathbf{60}\\) m³.<br><br>b) 1 m³ = 1 000 L → <b>60 000 L</b>.<br><br>c) Temps : \\(60\\,000 \\div 20 = 3\\,000\\) min = \\(3\\,000 \\div 60 = \\mathbf{50}\\) heures (soit un peu plus de 2 jours !)."
+  },
+  {
+    "date": "2026-08-06",
+    "theme": "Symétries des quadrilatères",
+    "cours": "<b>Axes et centres de symétrie usuels :</b><br>• Parallélogramme quelconque : 0 axe, 1 centre (intersection des diagonales).<br>• Rectangle : 2 axes (médiatrices des côtés), 1 centre.<br>• Losange : 2 axes (les diagonales), 1 centre.<br>• Carré : 4 axes, 1 centre.<br>Un cercle a une infinité d'axes (tous les diamètres) et un centre.",
+    "automatismes": [
+      {
+        "q": "Combien d'axes de symétrie a un rectangle non carré ?",
+        "r": "2."
+      },
+      {
+        "q": "Un parallélogramme quelconque a-t-il un axe de symétrie ?",
+        "r": "Non (mais il a un centre)."
+      },
+      {
+        "q": "Combien d'axes de symétrie a un losange non carré ?",
+        "r": "2 (les diagonales)."
+      }
+    ],
+    "probleme": {
+      "titre": "Identifier des quadrilatères",
+      "enonce": "Pour un projet d'arts plastiques, on classe différents quadrilatères selon leurs symétries.",
+      "questions": [
+        "a) Un quadrilatère a 4 axes de symétrie. Quelle est sa nature ?",
+        "b) Un quadrilatère a 2 axes de symétrie qui sont ses diagonales. Quelle est sa nature ?",
+        "c) Un quadrilatère a un centre de symétrie mais aucun axe. Quelle est sa nature ?",
+        "d) Un quadrilatère n'a ni axe ni centre de symétrie. Donne un exemple."
+      ]
+    },
+    "correction": "a) <b>Carré</b> (les 4 axes sont les 2 diagonales et les 2 médiatrices des côtés).<br><br>b) <b>Losange</b> non carré (un carré aurait 4 axes).<br><br>c) <b>Parallélogramme</b> quelconque (ni rectangle, ni losange).<br><br>d) Un <b>quadrilatère quelconque</b> ou un <b>trapèze quelconque</b> (non isocèle)."
+  },
+  {
+    "date": "2026-08-07",
+    "theme": "Simplifier une fraction",
+    "cours": "<b>Simplifier</b> une fraction : diviser numérateur et dénominateur par un même nombre non nul.<br>Une fraction est dite <i>irréductible</i> lorsqu'on ne peut plus la simplifier.<br>Astuce : reconnaître un diviseur commun (souvent 2, 3, 5 ou le PGCD).",
+    "automatismes": [
+      {
+        "q": "Simplifie \\(\\dfrac{12}{18}\\).",
+        "r": "\\(\\dfrac{2}{3}\\)"
+      },
+      {
+        "q": "Simplifie \\(\\dfrac{15}{25}\\).",
+        "r": "\\(\\dfrac{3}{5}\\)"
+      },
+      {
+        "q": "Simplifie \\(\\dfrac{14}{21}\\).",
+        "r": "\\(\\dfrac{2}{3}\\)"
+      }
+    ],
+    "probleme": {
+      "titre": "Mathéo et ses cartes Pokémon",
+      "enonce": "Mathéo possède 84 cartes Pokémon dont 36 sont de type « Plante » et 28 sont des cartes brillantes (holographiques).",
+      "questions": [
+        "a) Quelle fraction des cartes de Mathéo sont de type Plante ? Simplifie au maximum.",
+        "b) Quelle fraction des cartes sont brillantes ? Simplifie.",
+        "c) Sur les 36 cartes Plante, 12 sont brillantes. Quelle fraction (simplifiée) des Plantes est brillante ?"
+      ]
+    },
+    "correction": "a) Plantes : \\(\\dfrac{36}{84}\\). On divise par 12 : \\(\\dfrac{36 \\div 12}{84 \\div 12} = \\mathbf{\\dfrac{3}{7}}\\).<br><br>b) Brillantes : \\(\\dfrac{28}{84}\\). On divise par 28 : \\(\\dfrac{28 \\div 28}{84 \\div 28} = \\mathbf{\\dfrac{1}{3}}\\).<br><br>c) Plantes brillantes : \\(\\dfrac{12}{36}\\). On divise par 12 : \\(\\dfrac{1}{3}\\). Donc <b>\\(\\dfrac{1}{3}\\) des Plantes sont brillantes</b>."
+  },
+  {
+    "date": "2026-08-08",
+    "theme": "Triangles — synthèse",
+    "cours": "<b>Récapitulatif :</b><br>• Triangle équilatéral : 3 côtés égaux, 3 angles de 60°.<br>• Triangle isocèle : 2 côtés égaux, 2 angles à la base égaux.<br>• Triangle rectangle : 1 angle droit, l'aire vaut le demi-produit des deux côtés perpendiculaires.<br>Aire générale : \\(\\mathcal{A} = \\dfrac{b \\times h}{2}\\).",
+    "automatismes": [
+      {
+        "q": "Aire d'un triangle équilatéral de côté 4 cm et hauteur 3,46 cm ?",
+        "r": "\\(\\dfrac{4 \\times 3{,}46}{2} \\approx 6{,}9\\) cm²"
+      },
+      {
+        "q": "Combien d'axes de symétrie a un triangle équilatéral ?",
+        "r": "3."
+      },
+      {
+        "q": "Triangle avec deux angles de 45° : nature ?",
+        "r": "Rectangle isocèle."
+      }
+    ],
+    "probleme": {
+      "titre": "La voile colorée",
+      "enonce": "Sur le voilier-école, on remplace la grand-voile triangulaire rectangle dont les deux côtés perpendiculaires mesurent 4 m et 7,5 m. Le tissu coûte 22 € le m².",
+      "questions": [
+        "a) Calcule l'aire de la voile.",
+        "b) Calcule son coût.",
+        "c) Si on double les deux longueurs, par quel coefficient l'aire est-elle multipliée ?"
+      ]
+    },
+    "correction": "a) \\(\\mathcal{A} = \\dfrac{4 \\times 7{,}5}{2} = \\mathbf{15}\\) m².<br><br>b) Coût : \\(15 \\times 22 = \\mathbf{330}\\) €.<br><br>c) Nouvelle aire : \\(\\dfrac{8 \\times 15}{2} = 60\\) m². L'aire est multipliée par <b>4</b> (\\(2^2\\))."
+  },
+  {
+    "date": "2026-08-09",
+    "theme": "Cercle et disque",
+    "cours": "<b>Cercle</b> : ligne (1D) ; <b>disque</b> : surface (2D).<br>Périmètre du cercle : \\(P = 2\\pi r\\).<br>Aire du disque : \\(\\mathcal{A} = \\pi r^2\\).<br>Demi-cercle : on prend la moitié de \\(P\\), demi-disque : on prend la moitié de \\(\\mathcal{A}\\) (attention au diamètre éventuellement à ajouter pour les périmètres).",
+    "automatismes": [
+      {
+        "q": "Diamètre = ? × rayon",
+        "r": "\\(d = 2r\\)"
+      },
+      {
+        "q": "Aire d'un disque de rayon 10 cm en valeur exacte ?",
+        "r": "\\(100\\pi\\) cm²"
+      },
+      {
+        "q": "Périmètre d'un demi-cercle (arc seul) de rayon 6 cm ?",
+        "r": "\\(6\\pi\\) cm"
+      }
+    ],
+    "probleme": {
+      "titre": "La fontaine et son dallage",
+      "enonce": "Sur la place du marché, on installe une fontaine ronde de 3 m de rayon. Elle est entourée d'un dallage circulaire de 1,5 m de large.",
+      "questions": [
+        "a) Calcule l'aire du disque intérieur (la fontaine) en valeur exacte.",
+        "b) Quel est le rayon extérieur (fontaine + dallage) ?",
+        "c) Calcule l'aire totale (fontaine + dallage), puis l'aire du dallage seul. Arrondis au m²."
+      ]
+    },
+    "correction": "a) Fontaine : \\(\\pi \\times 3^2 = 9\\pi\\) m² \\(\\approx 28{,}3\\) m².<br><br>b) Rayon extérieur : \\(3 + 1{,}5 = 4{,}5\\) m.<br><br>c) Aire totale : \\(\\pi \\times 4{,}5^2 = 20{,}25\\pi \\approx 63{,}6\\) m².<br>Aire du dallage : \\(20{,}25\\pi - 9\\pi = 11{,}25\\pi \\approx \\mathbf{35}\\) m²."
+  },
+  {
+    "date": "2026-08-10",
+    "theme": "Symétries — synthèse",
+    "cours": "<b>Axe de symétrie</b> d'une figure : droite telle que le symétrique de la figure par rapport à elle soit la figure elle-même.<br><b>Centre de symétrie</b> : point tel que la figure soit invariante par symétrie centrale de ce centre.",
+    "automatismes": [
+      {
+        "q": "Axes de symétrie d'un rectangle non carré ?",
+        "r": "2 (médiatrices des côtés)."
+      },
+      {
+        "q": "Axes de symétrie d'un cercle ?",
+        "r": "Une infinité (tous les diamètres)."
+      },
+      {
+        "q": "Le centre de symétrie d'un parallélogramme est…",
+        "r": "l'intersection de ses diagonales."
+      }
+    ],
+    "probleme": {
+      "titre": "Logo en lettres",
+      "enonce": "Pour le concours de logos du collège, on étudie les lettres en majuscules d'imprimerie : A, B, H, M, N, O, S, X, Z.",
+      "questions": [
+        "a) Quelles lettres possèdent (au moins) un axe de symétrie ?",
+        "b) Quelles lettres possèdent un centre de symétrie ?",
+        "c) Quelles lettres possèdent à la fois un axe ET un centre de symétrie ?"
+      ]
+    },
+    "correction": "a) Avec axe(s) : <b>A, B, H, M, O, X</b> (A et M : axe vertical ; B et H : horizontal et/ou vertical ; O et X : plusieurs axes).<br><br>b) Avec centre : <b>H, N, O, S, X, Z</b>.<br><br>c) Axe ET centre : <b>H, O, X</b>."
+  },
+  {
+    "date": "2026-08-11",
+    "theme": "Pourcentages d'augmentation/réduction",
+    "cours": "<b>Augmenter de \\(t\\) %</b> : multiplier par \\(1 + \\dfrac{t}{100}\\).<br><b>Diminuer de \\(t\\) %</b> : multiplier par \\(1 - \\dfrac{t}{100}\\).<br><b>Pourcentage de variation :</b> \\(\\dfrac{\\text{nouvelle valeur} - \\text{ancienne valeur}}{\\text{ancienne valeur}}\\), exprimé en %.<br><b>Attention :</b> les % successifs ne s'additionnent pas.",
+    "automatismes": [
+      {
+        "q": "Augmenter de 10 %, c'est multiplier par…",
+        "r": "1,1"
+      },
+      {
+        "q": "Diminuer de 20 %, c'est multiplier par…",
+        "r": "0,8"
+      },
+      {
+        "q": "Prix de 50 € → 60 €. % d'augmentation ?",
+        "r": "20 %"
+      }
+    ],
+    "probleme": {
+      "titre": "Le loyer qui augmente",
+      "enonce": "Le loyer d'un appartement à louer est de 720 € en 2024. Il augmente de 2,5 % en 2025, puis de 3 % en 2026.",
+      "questions": [
+        "a) Calcule le loyer en 2025.",
+        "b) Calcule le loyer en 2026 (arrondi au centime).",
+        "c) L'augmentation totale est-elle de 5,5 % ? Justifie."
+      ]
+    },
+    "correction": "a) Loyer 2025 : \\(720 \\times 1{,}025 = \\mathbf{738}\\) €.<br><br>b) Loyer 2026 : \\(738 \\times 1{,}03 = \\mathbf{760{,}14}\\) €.<br><br>c) Augmentation totale : \\(760{,}14 - 720 = 40{,}14\\) €. En % : \\(\\dfrac{40{,}14}{720} \\approx \\mathbf{5{,}58}\\) %. Donc <b>non, ce n'est pas 5,5 %</b> : les % ne s'additionnent pas (effet cumulé : \\(1{,}025 \\times 1{,}03 = 1{,}05575\\))."
+  },
+  {
+    "date": "2026-08-12",
+    "theme": "Calcul littéral — développer",
+    "cours": "<b>Développer</b> : transformer un produit en somme à l'aide de la distributivité.<br>\\(k(a + b) = ka + kb\\) ; \\(k(a - b) = ka - kb\\).<br><b>Réduire</b> : regrouper les termes « semblables » (en \\(x\\) avec en \\(x\\), constantes avec constantes).",
+    "automatismes": [
+      {
+        "q": "Développe \\(2(x+3)\\).",
+        "r": "\\(2x + 6\\)"
+      },
+      {
+        "q": "Développe \\(5(2a-1)\\).",
+        "r": "\\(10a - 5\\)"
+      },
+      {
+        "q": "Réduis \\(3x + 5 + 2x\\).",
+        "r": "\\(5x + 5\\)"
+      }
+    ],
+    "probleme": {
+      "titre": "Le rectangle paramétré",
+      "enonce": "Un rectangle a pour longueur \\(L = x + 4\\) et pour largeur \\(\\ell = x\\), où \\(x > 0\\) est en cm.",
+      "questions": [
+        "a) Exprime le périmètre en fonction de \\(x\\), puis réduis.",
+        "b) Exprime l'aire en fonction de \\(x\\), puis développe.",
+        "c) Calcule périmètre et aire pour \\(x = 6\\) cm."
+      ]
+    },
+    "correction": "a) \\(P = 2((x+4) + x) = 2(2x + 4) = \\mathbf{4x + 8}\\).<br><br>b) \\(\\mathcal{A} = (x + 4) \\times x = \\mathbf{x^2 + 4x}\\).<br><br>c) Pour \\(x = 6\\) : \\(P = 24 + 8 = \\mathbf{32}\\) cm ; \\(\\mathcal{A} = 36 + 24 = \\mathbf{60}\\) cm² (vérif : \\(10 \\times 6 = 60\\) ✓)."
+  },
+  {
+    "date": "2026-08-13",
+    "theme": "Repérage — construire un carré",
+    "cours": "Dans un repère, deux points qui ont <b>même ordonnée</b> sont alignés horizontalement ; deux points qui ont <b>même abscisse</b> sont alignés verticalement.<br>Pour construire un carré ABCD à partir de deux sommets A et B alignés, on monte (ou descend) de la longueur \\(AB\\) pour obtenir C et D.",
+    "automatismes": [
+      {
+        "q": "\\(A(0 ; 5)\\) est sur quel axe ?",
+        "r": "L'axe des ordonnées."
+      },
+      {
+        "q": "Symétrique de \\(A(2 ; -3)\\) par rapport à l'axe des abscisses ?",
+        "r": "\\((2 ; 3)\\)."
+      },
+      {
+        "q": "Symétrique de \\(A(2 ; -3)\\) par rapport à l'axe des ordonnées ?",
+        "r": "\\((-2 ; -3)\\)."
+      }
+    ],
+    "probleme": {
+      "titre": "Construire un carré dans un repère",
+      "enonce": "Dans un repère orthonormé, on place \\(A(-2 ; 1)\\) et \\(B(3 ; 1)\\). On veut construire le carré ABCD (sommets dans cet ordre, le carré étant vers le haut).",
+      "questions": [
+        "a) Calcule la longueur \\(AB\\).",
+        "b) Donne les coordonnées de C et de D.",
+        "c) Calcule l'aire du carré ABCD."
+      ]
+    },
+    "correction": "a) A et B ont même ordonnée 1 : \\(AB = 3 - (-2) = \\mathbf{5}\\) unités.<br><br>b) Le côté vaut 5 : en montant de 5 unités, on obtient <b>\\(C(3 ; 6)\\)</b> et <b>\\(D(-2 ; 6)\\)</b>.<br><br>c) Aire : \\(5 \\times 5 = \\mathbf{25}\\) unités d'aire."
+  },
+  {
+    "date": "2026-08-14",
+    "theme": "Vitesse moyenne",
+    "cours": "<b>Vitesse moyenne :</b> \\(v = \\dfrac{d}{t}\\) (distance ÷ temps).<br>On peut isoler chaque grandeur : \\(d = v \\times t\\) et \\(t = \\dfrac{d}{v}\\).<br><b>Unités cohérentes :</b> si \\(d\\) est en km et \\(t\\) en h, alors \\(v\\) est en km/h.",
+    "automatismes": [
+      {
+        "q": "1 h 30 min = ? min",
+        "r": "90 min."
+      },
+      {
+        "q": "Vitesse = distance ÷ ?",
+        "r": "temps."
+      },
+      {
+        "q": "60 km en 1 h, vitesse moyenne ?",
+        "r": "60 km/h."
+      }
+    ],
+    "probleme": {
+      "titre": "Le trajet en TGV",
+      "enonce": "Un TGV parcourt 360 km en 3 heures sans arrêt.",
+      "questions": [
+        "a) Calcule sa vitesse moyenne en km/h.",
+        "b) À cette vitesse, combien de temps mettra-t-il pour parcourir 540 km ?",
+        "c) Combien de minutes faut-il pour parcourir 30 km ?"
+      ]
+    },
+    "correction": "a) \\(v = \\dfrac{360}{3} = \\mathbf{120}\\) km/h.<br><br>b) \\(t = \\dfrac{540}{120} = 4{,}5\\) h = <b>4 h 30 min</b>.<br><br>c) \\(t = \\dfrac{30}{120} = 0{,}25\\) h = <b>15 min</b>."
+  },
+  {
+    "date": "2026-08-15",
+    "theme": "Démonstration géométrique",
+    "cours": "<b>Pour démontrer qu'un quadrilatère est un parallélogramme</b>, on peut utiliser l'une des propriétés :<br>• ses côtés opposés sont parallèles deux à deux ;<br>• ses diagonales se coupent en leur milieu ;<br>• ses côtés opposés sont de même longueur.",
+    "automatismes": [
+      {
+        "q": "Diagonales d'un parallélogramme se coupent en leur…",
+        "r": "milieu."
+      },
+      {
+        "q": "Médiatrice d'un segment = ?",
+        "r": "Droite perpendiculaire passant par le milieu."
+      },
+      {
+        "q": "Un point sur la médiatrice de [AB] est…",
+        "r": "équidistant de A et B."
+      }
+    ],
+    "probleme": {
+      "titre": "Diagonales et nature",
+      "enonce": "Dans une figure, M est à la fois le milieu de [AC] et le milieu de [BD].",
+      "questions": [
+        "a) Quelle est la nature du quadrilatère ABCD ? Justifie.",
+        "b) Si de plus \\(AC = BD\\), précise sa nature.",
+        "c) Si de plus \\((AC) \\perp (BD)\\) et \\(AC = BD\\), précise encore sa nature."
+      ]
+    },
+    "correction": "a) Les diagonales se coupent en leur milieu → ABCD est un <b>parallélogramme</b>.<br><br>b) Diagonales de même longueur → ABCD est aussi un <b>rectangle</b>.<br><br>c) Diagonales perpendiculaires en plus → ABCD est un <b>carré</b>."
+  },
+  {
+    "date": "2026-08-16",
+    "theme": "Comparaison de fractions",
+    "cours": "<b>Pour comparer deux fractions :</b><br>• si elles ont le même dénominateur, on compare les numérateurs ;<br>• sinon, on les réduit au même dénominateur ;<br>• comparer avec 1 : si numérateur > dénominateur, alors fraction > 1.",
+    "automatismes": [
+      {
+        "q": "Compare \\(\\dfrac{3}{5}\\) et \\(\\dfrac{4}{5}\\).",
+        "r": "\\(\\dfrac{3}{5} < \\dfrac{4}{5}\\)"
+      },
+      {
+        "q": "Compare \\(\\dfrac{3}{4}\\) et \\(\\dfrac{5}{8}\\).",
+        "r": "\\(\\dfrac{6}{8} > \\dfrac{5}{8}\\)"
+      },
+      {
+        "q": "Compare \\(\\dfrac{7}{6}\\) et 1.",
+        "r": "\\(\\dfrac{7}{6} > 1\\)"
+      }
+    ],
+    "probleme": {
+      "titre": "Qui en a le plus ?",
+      "enonce": "Trois amis remplissent leur collection de cartes à collectionner :<br>• Alex possède \\(\\dfrac{5}{6}\\) du nombre maximum de cartes.<br>• Bilel possède \\(\\dfrac{7}{9}\\).<br>• Chloé possède \\(\\dfrac{11}{12}\\).",
+      "questions": [
+        "a) Réduis les trois fractions au même dénominateur (commun : 36).",
+        "b) Classe les amis par ordre croissant de remplissage de leur collection."
+      ]
+    },
+    "correction": "a) \\(\\dfrac{5}{6} = \\dfrac{30}{36}\\) ; \\(\\dfrac{7}{9} = \\dfrac{28}{36}\\) ; \\(\\dfrac{11}{12} = \\dfrac{33}{36}\\).<br><br>b) \\(28 < 30 < 33\\), donc <b>Bilel < Alex < Chloé</b>."
+  },
+  {
+    "date": "2026-08-17",
+    "theme": "Algorithmique — conditions",
+    "cours": "<b>Test conditionnel :</b> « <i>Si</i> condition <i>alors</i> action <i>sinon</i> autre action ».<br><b>Divisibilité :</b><br>• divisible par 2 ↔ chiffre des unités est pair ;<br>• divisible par 5 ↔ chiffre des unités est 0 ou 5 ;<br>• divisible par 10 ↔ se termine par 0 ;<br>• divisible par 3 ↔ somme des chiffres divisible par 3.",
+    "automatismes": [
+      {
+        "q": "« Si \\(x > 0\\) alors \\(x\\) est… »",
+        "r": "positif."
+      },
+      {
+        "q": "« Si 7 est pair alors 'oui' sinon 'non' » retourne ?",
+        "r": "« non »."
+      },
+      {
+        "q": "Divisible par 2 ET par 3 → divisible par…",
+        "r": "6."
+      }
+    ],
+    "probleme": {
+      "titre": "L'algorithme de Syracuse",
+      "enonce": "Voici un algorithme bien connu :<br>Choisir un entier \\(n\\) :<br>• si \\(n\\) est pair, calculer \\(n \\div 2\\) ;<br>• sinon, calculer \\(3n + 1\\).",
+      "questions": [
+        "a) Applique-le à \\(n = 10\\).",
+        "b) Applique-le à \\(n = 7\\).",
+        "c) Applique-le plusieurs fois de suite en partant de 6. Que remarques-tu ?"
+      ]
+    },
+    "correction": "a) 10 est pair → \\(10 \\div 2 = \\mathbf{5}\\).<br><br>b) 7 est impair → \\(3 \\times 7 + 1 = \\mathbf{22}\\).<br><br>c) En partant de 6 :<br>6 → 3 → 10 → 5 → 16 → 8 → 4 → 2 → 1 → 4 → 2 → 1 → …<br>La suite finit par <b>boucler sur 4, 2, 1</b>. C'est la conjecture de Syracuse, non démontrée à ce jour !"
+  },
+  {
+    "date": "2026-08-18",
+    "theme": "Aire d'un parallélogramme",
+    "cours": "<b>Aire d'un parallélogramme</b> : \\(\\mathcal{A} = \\text{base} \\times \\text{hauteur}\\).<br>La <i>hauteur</i> est la distance perpendiculaire entre la base choisie et le côté opposé.",
+    "automatismes": [
+      {
+        "q": "Aire = base × ?",
+        "r": "hauteur."
+      },
+      {
+        "q": "Base 5 cm, hauteur 3 cm. Aire ?",
+        "r": "15 cm²"
+      },
+      {
+        "q": "Si on double la hauteur, l'aire est…",
+        "r": "doublée."
+      }
+    ],
+    "probleme": {
+      "titre": "Façade à repeindre",
+      "enonce": "La façade pignon d'une maison a la forme d'un parallélogramme de base 8,40 m et de hauteur (perpendiculaire) 6,50 m. On veut la repeindre.",
+      "questions": [
+        "a) Calcule l'aire à peindre.",
+        "b) Un pot de peinture couvre 8 m². Combien de pots faut-il prévoir (entier supérieur) ?",
+        "c) Un pot coûte 24,90 €. Calcule le coût."
+      ]
+    },
+    "correction": "a) \\(\\mathcal{A} = 8{,}40 \\times 6{,}50 = \\mathbf{54{,}6}\\) m².<br><br>b) \\(54{,}6 \\div 8 = 6{,}825\\) → <b>7 pots</b>.<br><br>c) Coût : \\(7 \\times 24{,}90 = \\mathbf{174{,}30}\\) €."
+  },
+  {
+    "date": "2026-08-19",
+    "theme": "Vitesse — durée — distance",
+    "cours": "On utilise toujours \\(d = v \\times t\\).<br><b>Attention aux unités :</b> 1 h = 60 min ; 1 min = 60 s ; 0,5 h = 30 min ; 0,25 h = 15 min.<br>Pour passer de h à min : multiplier par 60. Pour les fractions d'heure : \\(\\dfrac{1}{4}\\) h = 15 min ; \\(\\dfrac{1}{2}\\) h = 30 min ; \\(\\dfrac{3}{4}\\) h = 45 min.",
+    "automatismes": [
+      {
+        "q": "1,5 h en min ?",
+        "r": "90 min."
+      },
+      {
+        "q": "À 80 km/h, distance en 1 h 15 min ?",
+        "r": "\\(80 \\times 1{,}25 = 100\\) km."
+      },
+      {
+        "q": "À 60 km/h, temps pour 30 km ?",
+        "r": "0,5 h = 30 min."
+      }
+    ],
+    "probleme": {
+      "titre": "En route pour les vacances",
+      "enonce": "La famille de Salem part en vacances. Le matin, ils parcourent 270 km en 3 h. L'après-midi, après une pause déjeuner, ils parcourent 180 km en 2 h.",
+      "questions": [
+        "a) Calcule la vitesse moyenne le matin.",
+        "b) Calcule la vitesse moyenne l'après-midi.",
+        "c) Calcule la vitesse moyenne sur l'ensemble du voyage (sans compter la pause)."
+      ]
+    },
+    "correction": "a) \\(v_1 = \\dfrac{270}{3} = \\mathbf{90}\\) km/h.<br><br>b) \\(v_2 = \\dfrac{180}{2} = \\mathbf{90}\\) km/h.<br><br>c) Distance totale : \\(270 + 180 = 450\\) km. Temps total : \\(3 + 2 = 5\\) h. \\(v = \\dfrac{450}{5} = \\mathbf{90}\\) km/h. (Les vitesses étaient égales, la moyenne ne pouvait que valoir 90 km/h.)"
+  },
+  {
+    "date": "2026-08-20",
+    "theme": "Équation simple (initiation 4ᵉ)",
+    "cours": "<b>Équation :</b> égalité contenant une inconnue (souvent \\(x\\)). <b>Résoudre</b> = trouver la (ou les) valeur(s) de \\(x\\) qui rendent l'égalité vraie.<br>Stratégie 5ᵉ : tester des valeurs ou « remonter » le calcul. (En 4ᵉ, on apprendra une méthode générale.)",
+    "automatismes": [
+      {
+        "q": "\\(x + 7 = 12\\), \\(x = ?\\)",
+        "r": "5"
+      },
+      {
+        "q": "\\(3x = 21\\), \\(x = ?\\)",
+        "r": "7"
+      },
+      {
+        "q": "Réduis \\(2x + 5 - x + 3\\).",
+        "r": "\\(x + 8\\)"
+      }
+    ],
+    "probleme": {
+      "titre": "Le problème du double âge",
+      "enonce": "Aujourd'hui, Mathéo a 12 ans et sa mère a 36 ans.",
+      "questions": [
+        "a) Dans combien d'années (notons-le \\(x\\)) la mère aura-t-elle exactement le double de l'âge de son fils ?",
+        "b) Écris l'équation traduisant la situation.",
+        "c) Résous l'équation en testant des valeurs (et conclus)."
+      ]
+    },
+    "correction": "a) Dans \\(x\\) ans : Mathéo aura \\(12 + x\\) ans, sa mère aura \\(36 + x\\) ans.<br><br>b) Équation : \\(36 + x = 2(12 + x)\\).<br><br>c) Test \\(x = 10\\) : gauche \\(= 46\\), droite \\(= 44\\) → faux.<br>Test \\(x = 12\\) : gauche \\(= 48\\), droite \\(= 2 \\times 24 = 48\\) → <b>vrai ✓</b>.<br><b>Dans 12 ans</b>, Mathéo aura 24 ans et sa mère 48 ans (le double)."
+  },
+  {
+    "date": "2026-08-21",
+    "theme": "Volumes — synthèse",
+    "cours": "Récapitulatif :<br>• Pavé droit : \\(V = L \\times \\ell \\times h\\)<br>• Cube : \\(V = a^3\\)<br>• Cylindre : \\(V = \\pi r^2 \\times h\\)<br>Conversions clés : 1 m³ = 1 000 L ; 1 dm³ = 1 L ; 1 cm³ = 1 mL.",
+    "automatismes": [
+      {
+        "q": "Volume d'un cube d'arête 5 cm ?",
+        "r": "125 cm³"
+      },
+      {
+        "q": "Volume d'un cylindre de rayon 2 cm et hauteur 10 cm ?",
+        "r": "\\(40\\pi\\) cm³"
+      },
+      {
+        "q": "1 hL = ? L",
+        "r": "100 L"
+      }
+    ],
+    "probleme": {
+      "titre": "Le grenier",
+      "enonce": "Un grenier a une base rectangulaire de 6 m sur 4 m. Sa toiture en deux pans donne, en coupe, une forme dont la hauteur va de 2 m sur les côtés à 3,5 m au centre.",
+      "questions": [
+        "a) Calcule la hauteur moyenne du grenier (moyenne de 2 m et 3,5 m).",
+        "b) Estime le volume du grenier (base × hauteur moyenne).",
+        "c) Combien y a-t-il de m³ disponibles pour le rangement ?"
+      ]
+    },
+    "correction": "a) Hauteur moyenne : \\(\\dfrac{2 + 3{,}5}{2} = \\mathbf{2{,}75}\\) m.<br><br>b) Volume estimé : \\(6 \\times 4 \\times 2{,}75 = \\mathbf{66}\\) m³.<br><br>c) Environ <b>66 m³</b> de rangement."
+  },
+  {
+    "date": "2026-08-22",
+    "theme": "Probabilités — deux dés",
+    "cours": "Lancer deux dés : il y a \\(6 \\times 6 = 36\\) tirages possibles (couples \\((a, b)\\)).<br>Probabilité d'un événement = nombre de cas favorables / 36.",
+    "automatismes": [
+      {
+        "q": "Issues d'un dé à 6 faces ?",
+        "r": "{1, 2, 3, 4, 5, 6}."
+      },
+      {
+        "q": "Probabilité d'obtenir un nombre pair avec un dé ?",
+        "r": "\\(\\dfrac{1}{2}\\)"
+      },
+      {
+        "q": "Probabilité d'obtenir un multiple de 3 ?",
+        "r": "\\(\\dfrac{1}{3}\\)"
+      }
+    ],
+    "probleme": {
+      "titre": "Le jeu des deux dés",
+      "enonce": "On lance deux dés équilibrés à 6 faces et on calcule la somme.",
+      "questions": [
+        "a) Quelle est la somme la plus petite possible ? La plus grande ?",
+        "b) Probabilité d'obtenir une somme de 7 ? (Liste les couples favorables.)",
+        "c) Probabilité d'obtenir une somme de 12 ?"
+      ]
+    },
+    "correction": "Il y a 36 tirages équiprobables.<br><br>a) Min : \\(1+1=2\\). Max : \\(6+6=12\\).<br><br>b) Couples favorables : (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) → 6 cas. \\(P = \\dfrac{6}{36} = \\mathbf{\\dfrac{1}{6}}\\).<br><br>c) Un seul cas : (6,6). \\(P = \\mathbf{\\dfrac{1}{36}}\\)."
+  },
+  {
+    "date": "2026-08-23",
+    "theme": "Multiples et diviseurs — synthèse",
+    "cours": "<b>Multiple :</b> \\(n\\) est un multiple de \\(d\\) si \\(n = d \\times k\\) pour un entier \\(k\\).<br><b>Multiple commun :</b> nombre multiple de plusieurs nombres à la fois.<br><b>PPCM :</b> plus petit multiple commun (utile pour synchroniser des cycles).",
+    "automatismes": [
+      {
+        "q": "Les 5 premiers multiples de 6 ?",
+        "r": "6, 12, 18, 24, 30."
+      },
+      {
+        "q": "Le plus petit multiple commun de 4 et 6 ?",
+        "r": "12."
+      },
+      {
+        "q": "Le plus petit multiple commun de 3 et 5 ?",
+        "r": "15."
+      }
+    ],
+    "probleme": {
+      "titre": "Les phares au bord de mer",
+      "enonce": "Sur la côte caraïbe, deux phares clignotent en même temps à minuit pile. Le premier émet un éclat toutes les 12 secondes, le second toutes les 18 secondes.",
+      "questions": [
+        "a) Cite les multiples de 12 inférieurs ou égaux à 60.",
+        "b) Cite les multiples de 18 inférieurs ou égaux à 60.",
+        "c) Au bout de combien de secondes les deux phares clignoteront-ils à nouveau en même temps ?",
+        "d) Combien de fois cela se produira-t-il en une heure ?"
+      ]
+    },
+    "correction": "a) Multiples de 12 ≤ 60 : 12, 24, <b>36</b>, 48, 60.<br><br>b) Multiples de 18 ≤ 60 : 18, <b>36</b>, 54.<br><br>c) Plus petit multiple commun : <b>36 secondes</b> (PPCM de 12 et 18).<br><br>d) En 1 h = 3 600 s : \\(3\\,600 \\div 36 = \\mathbf{100}\\) fois (en comptant le déclenchement de minuit, 101)."
+  },
+  {
+    "date": "2026-08-24",
+    "theme": "Calcul mental",
+    "cours": "<b>Astuces de calcul mental :</b><br>• Décomposer : \\(15 \\times 12 = 15 \\times 10 + 15 \\times 2\\).<br>• Compenser : \\(99 \\times 7 = 100 \\times 7 - 7\\).<br>• Couper en deux : \\(0{,}5 \\times n = n \\div 2\\) ; \\(0{,}25 \\times n = n \\div 4\\).",
+    "automatismes": [
+      {
+        "q": "\\(15 \\times 12\\) sans poser ?",
+        "r": "180"
+      },
+      {
+        "q": "\\(0{,}25 \\times 24\\) ?",
+        "r": "6"
+      },
+      {
+        "q": "\\(99 \\times 7\\) astucieusement ?",
+        "r": "693"
+      }
+    ],
+    "probleme": {
+      "titre": "Course aux astuces",
+      "enonce": "Sans poser d'opérations, par calcul mental :",
+      "questions": [
+        "a) Calcule \\(25 \\times 36\\).",
+        "b) Calcule \\(0{,}5 \\times 87\\).",
+        "c) Calcule \\(101 \\times 49\\)."
+      ]
+    },
+    "correction": "a) \\(25 \\times 36 = 25 \\times 4 \\times 9 = 100 \\times 9 = \\mathbf{900}\\). Autre : \\(25 \\times (40 - 4) = 1\\,000 - 100 = 900\\).<br><br>b) \\(0{,}5 \\times 87 = \\dfrac{87}{2} = \\mathbf{43{,}5}\\).<br><br>c) \\(101 \\times 49 = (100 + 1) \\times 49 = 4\\,900 + 49 = \\mathbf{4\\,949}\\)."
+  },
+  {
+    "date": "2026-08-25",
+    "theme": "Angles dans un parallélogramme",
+    "cours": "<b>Angles supplémentaires :</b> deux angles dont la somme vaut 180°.<br><b>Angles complémentaires :</b> deux angles dont la somme vaut 90°.<br><b>Dans un parallélogramme :</b><br>• angles opposés égaux ;<br>• angles consécutifs supplémentaires ;<br>• somme des 4 angles = 360°.",
+    "automatismes": [
+      {
+        "q": "Deux angles supplémentaires ont pour somme…",
+        "r": "180°."
+      },
+      {
+        "q": "Deux angles complémentaires ont pour somme…",
+        "r": "90°."
+      },
+      {
+        "q": "Complémentaire d'un angle de 70° ?",
+        "r": "20°."
+      }
+    ],
+    "probleme": {
+      "titre": "Le terrain en parallélogramme",
+      "enonce": "Le terrain de pétanque ABCD a la forme d'un parallélogramme. L'angle \\(\\widehat{A} = 110°\\).",
+      "questions": [
+        "a) Que peut-on dire de \\(\\widehat{A}\\) et \\(\\widehat{C}\\) ? De \\(\\widehat{A}\\) et \\(\\widehat{B}\\) ?",
+        "b) Calcule \\(\\widehat{B}\\), \\(\\widehat{C}\\), \\(\\widehat{D}\\).",
+        "c) Vérifie la somme des 4 angles."
+      ]
+    },
+    "correction": "a) \\(\\widehat{A} = \\widehat{C}\\) (opposés) ; \\(\\widehat{A} + \\widehat{B} = 180°\\) (consécutifs).<br><br>b) \\(\\widehat{C} = \\mathbf{110°}\\) ; \\(\\widehat{B} = 180 - 110 = \\mathbf{70°}\\) ; \\(\\widehat{D} = \\widehat{B} = \\mathbf{70°}\\).<br><br>c) Somme : \\(110 + 70 + 110 + 70 = 360°\\) ✓."
+  },
+  {
+    "date": "2026-08-26",
+    "theme": "Vitesse — synthèse",
+    "cours": "<b>Conversions de vitesses :</b><br>1 m/s = 3,6 km/h ; donc 1 km/h = \\(\\dfrac{1}{3{,}6}\\) m/s.<br>Pour passer de km/h en m/s : <b>diviser par 3,6</b>. Pour l'inverse, <b>multiplier par 3,6</b>.",
+    "automatismes": [
+      {
+        "q": "240 km en 4 h : vitesse moyenne ?",
+        "r": "60 km/h."
+      },
+      {
+        "q": "90 km/h en m/s ?",
+        "r": "25 m/s."
+      },
+      {
+        "q": "1 m/s en km/h ?",
+        "r": "3,6 km/h."
+      }
+    ],
+    "probleme": {
+      "titre": "Marathon entraînement",
+      "enonce": "Marc s'entraîne pour le marathon de Fort-de-France (42,195 km). Lors de son dernier entraînement, il a couru 10 km en 50 minutes.",
+      "questions": [
+        "a) Quelle est sa vitesse moyenne en km/h ?",
+        "b) S'il gardait cette allure, en combien de temps ferait-il le marathon entier (en h et min) ?",
+        "c) Convertis sa vitesse en m/s."
+      ]
+    },
+    "correction": "a) \\(\\dfrac{10}{50}\\) km/min × 60 = <b>12 km/h</b>.<br><br>b) \\(\\dfrac{42{,}195}{12} \\approx 3{,}516\\) h ≈ 3 h \\((0{,}516 \\times 60)\\) min ≈ <b>3 h 31 min</b>.<br><br>c) \\(\\dfrac{12}{3{,}6} \\approx \\mathbf{3{,}33}\\) m/s."
+  },
+  {
+    "date": "2026-08-27",
+    "theme": "Préparation 4ᵉ — puissances",
+    "cours": "<b>Puissance :</b> \\(a^n = \\underbrace{a \\times a \\times \\dots \\times a}_{n \\text{ facteurs}}\\).<br>Cas particuliers : \\(a^2\\) (carré), \\(a^3\\) (cube), \\(10^n = 1\\underbrace{00\\dots 0}_{n \\text{ zéros}}\\).<br>Attention au signe : \\((-3)^2 = 9\\) mais \\(-3^2 = -9\\).",
+    "automatismes": [
+      {
+        "q": "\\(2^3\\) ?",
+        "r": "8"
+      },
+      {
+        "q": "\\(10^4\\) ?",
+        "r": "10 000"
+      },
+      {
+        "q": "\\((-3)^2\\) ?",
+        "r": "9"
+      }
+    ],
+    "probleme": {
+      "titre": "Pliage de papier",
+      "enonce": "Tu prends une feuille d'épaisseur 0,1 mm et tu la plies en deux. Chaque pliage double l'épaisseur.",
+      "questions": [
+        "a) Quelle est l'épaisseur après 1 pli ? 2 plis ? 3 plis ?",
+        "b) Trouve une formule de l'épaisseur après \\(n\\) plis.",
+        "c) Quelle serait l'épaisseur après 10 plis ?"
+      ]
+    },
+    "correction": "a) 1 pli : 0,2 mm ; 2 plis : 0,4 mm ; 3 plis : 0,8 mm.<br><br>b) Épaisseur \\(= 0{,}1 \\times 2^n\\) mm.<br><br>c) Pour \\(n = 10\\) : \\(0{,}1 \\times 1\\,024 = \\mathbf{102{,}4}\\) mm ≈ <b>10 cm</b>."
+  },
+  {
+    "date": "2026-08-28",
+    "theme": "Préparation 4ᵉ — PGCD",
+    "cours": "<b>PGCD</b> (plus grand commun diviseur) : le plus grand diviseur commun à deux nombres entiers.<br>Méthode : lister les diviseurs de chacun et prendre le plus grand commun (ou bien décomposer en facteurs premiers).<br>Usage : carrelages, simplification de fractions, partages.",
+    "automatismes": [
+      {
+        "q": "Diviseurs de 24 ?",
+        "r": "1, 2, 3, 4, 6, 8, 12, 24."
+      },
+      {
+        "q": "\\(60 = ?\\) en produit de facteurs premiers.",
+        "r": "\\(2^2 \\times 3 \\times 5\\)"
+      },
+      {
+        "q": "PGCD de 12 et 18 ?",
+        "r": "6."
+      }
+    ],
+    "probleme": {
+      "titre": "Carrelage rectangulaire",
+      "enonce": "Un sol rectangulaire mesure 252 cm sur 180 cm. On veut le couvrir entièrement avec des carreaux carrés identiques, sans découpe.",
+      "questions": [
+        "a) Quels sont les côtés (en cm) possibles pour les carreaux ?",
+        "b) Quel est le plus grand côté possible ?",
+        "c) Combien de carreaux faut-il avec cette taille ?"
+      ]
+    },
+    "correction": "a) Le côté doit être un diviseur commun de 252 et 180.<br>Diviseurs communs : 1, 2, 3, 4, 6, 9, 12, 18, 36.<br><br>b) PGCD = <b>36 cm</b>.<br><br>c) Nombre : \\(\\dfrac{252}{36} \\times \\dfrac{180}{36} = 7 \\times 5 = \\mathbf{35}\\) carreaux."
+  },
+  {
+    "date": "2026-08-29",
+    "theme": "Défi temps",
+    "cours": "<b>Unités de temps :</b><br>• 1 h = 60 min = 3 600 s ;<br>• 1 jour = 24 h = 1 440 min = 86 400 s ;<br>• 1 année civile = 365 jours (ou 366 si bissextile).",
+    "automatismes": [
+      {
+        "q": "Combien de minutes dans 1 journée ?",
+        "r": "1 440 min."
+      },
+      {
+        "q": "Combien de secondes dans 1 h ?",
+        "r": "3 600 s."
+      },
+      {
+        "q": "Année non bissextile : ? jours",
+        "r": "365."
+      }
+    ],
+    "probleme": {
+      "titre": "Le défi de l'horloge",
+      "enonce": "Une horloge digitale affiche les heures au format \\(HH:MM:SS\\). À chaque seconde, elle change. On s'intéresse aux moments où le chiffre des <b>dizaines de minutes</b> vaut 0.",
+      "questions": [
+        "a) Pour quelle plage de minutes ce chiffre vaut-il 0 ?",
+        "b) Combien de secondes cela représente-t-il par heure ?",
+        "c) Et sur une journée entière (24 h) ?"
+      ]
+    },
+    "correction": "a) Les minutes vont de <b>00 à 09</b> (10 minutes par heure).<br><br>b) \\(10 \\times 60 = \\mathbf{600}\\) secondes par heure.<br><br>c) Sur 24 h : \\(600 \\times 24 = \\mathbf{14\\,400}\\) s = 4 heures cumulées."
+  },
+  {
+    "date": "2026-08-30",
+    "theme": "Bilan — figure composée",
+    "cours": "Pour calculer l'aire ou le périmètre d'une figure composée :<br>1. on la <b>décompose</b> en figures usuelles (rectangle, triangle, disque, demi-disque…) ;<br>2. on calcule l'aire (ou le périmètre) de chaque morceau ;<br>3. on les <b>additionne</b> (ou on soustrait, si une partie est retirée).",
+    "automatismes": [
+      {
+        "q": "\\(\\dfrac{2}{3} + \\dfrac{1}{4}\\) ?",
+        "r": "\\(\\dfrac{11}{12}\\)"
+      },
+      {
+        "q": "\\((-5) + (-3) - (-2)\\) ?",
+        "r": "\\(-6\\)"
+      },
+      {
+        "q": "Aire d'un disque de rayon 7 cm (arrondi au cm²) ?",
+        "r": "≈ 154 cm²"
+      }
+    ],
+    "probleme": {
+      "titre": "Terrain de sport",
+      "enonce": "Un terrain de sport a la forme d'un « stade » : un rectangle de 50 m × 30 m surmonté, à chacun de ses petits côtés, d'un demi-disque de rayon 15 m.",
+      "questions": [
+        "a) Fais un schéma à main levée.",
+        "b) Calcule l'aire totale du terrain (arrondie au m²).",
+        "c) Calcule son périmètre (arrondi au m)."
+      ]
+    },
+    "correction": "a) Un rectangle allongé avec un demi-cercle de chaque côté (forme « hippodrome »).<br><br>b) Rectangle : \\(50 \\times 30 = 1\\,500\\) m². Les 2 demi-disques = 1 disque de rayon 15 : \\(\\pi \\times 15^2 = 225\\pi \\approx 707\\) m². Total : <b>≈ 2 207 m²</b>.<br><br>c) Périmètre : les 2 longueurs (50 m chacune) + le périmètre d'un cercle de rayon 15 : \\(100 + 30\\pi \\approx \\mathbf{194}\\) m."
+  },
+  {
+    "date": "2026-08-31",
+    "theme": "Rentrée — bilan",
+    "cours": "<b>Bon courage pour la rentrée en 4ᵉ !</b><br>N'oublie pas l'essentiel de la 5ᵉ : les priorités opératoires, le calcul littéral, les fractions, les nombres relatifs, et les propriétés des figures (triangles, parallélogrammes, symétries). Tu vas approfondir tout ça en 4ᵉ avec le théorème de Pythagore, les équations, et le calcul fractionnaire complet.",
+    "automatismes": [
+      {
+        "q": "\\(\\dfrac{3}{5}\\) de 100 ?",
+        "r": "60"
+      },
+      {
+        "q": "Moyenne de 12, 15, 9, 18, 16 ?",
+        "r": "14"
+      },
+      {
+        "q": "15 % de 200 ?",
+        "r": "30"
+      }
+    ],
+    "probleme": {
+      "titre": "Préparer la rentrée",
+      "enonce": "Pour la rentrée, Madame Lopez achète pour ses deux enfants :<br>• 5 cahiers à 2,40 € pièce<br>• 2 calculatrices à 22 € pièce<br>• 12 stylos à 1,20 € pièce<br>• 3 trousses à 8,50 € pièce.<br>Elle bénéficie d'une réduction de 10 % sur l'ensemble (carte fidélité).",
+      "questions": [
+        "a) Calcule le coût total avant réduction.",
+        "b) Calcule le montant de la réduction.",
+        "c) Combien paie-t-elle en tout ?",
+        "d) Bon courage pour la rentrée en 4ᵉ !"
+      ]
+    },
+    "correction": "a) Détails : cahiers \\(12\\) € ; calculatrices \\(44\\) € ; stylos \\(14{,}40\\) € ; trousses \\(25{,}50\\) €.<br>Total : \\(12 + 44 + 14{,}40 + 25{,}50 = \\mathbf{95{,}90}\\) €.<br><br>b) Réduction : \\(95{,}90 \\times 0{,}10 = \\mathbf{9{,}59}\\) €.<br><br>c) Total payé : \\(95{,}90 \\times 0{,}9 = \\mathbf{86{,}31}\\) €.<br><br>d) 🎒 <b>Excellente rentrée à tous !</b> Tu es prêt(e) pour la 4ᵉ. 💪"
+  }
+];
+const now = new Date();
+
+function dateOnly(d) { return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
+function parseISO(s) {
+  const [y, m, d] = s.split('-').map(Number);
+  return new Date(y, m - 1, d);
+}
+function formaterDateFr(d) {
+  const jours = ['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
+  const mois = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  return `${jours[d.getDay()]} ${d.getDate()} ${mois[d.getMonth()]} ${d.getFullYear()}`;
+}
+
+const AUJ = dateOnly(now);
+
+function indexCourant() {
+  for (let i = 0; i < EXOS.length; i++) {
+    const dateExo = parseISO(EXOS[i].date);
+    if (AUJ.getTime() === dateExo.getTime()) return i;
+  }
+  if (AUJ < parseISO(EXOS[0].date)) return -1;
+  return EXOS.length - 1;
+}
+
+let idx = indexCourant();
+
+const elContenu = document.getElementById('contenu');
+const elSelect = document.getElementById('select-jour');
+const elDateAuj = document.getElementById('date-aujourdhui');
+const btnPrec = document.getElementById('btn-prec');
+const btnSuiv = document.getElementById('btn-suiv');
+const btnAuj = document.getElementById('btn-auj');
+
+elDateAuj.textContent = "📅 " + formaterDateFr(AUJ);
+
+function rebuildSelect() {
+  elSelect.innerHTML = '';
+  EXOS.forEach((exo, i) => {
+    const dateExo = parseISO(exo.date);
+    if (dateExo <= AUJ) {
+      const opt = document.createElement('option');
+      opt.value = i;
+      const j = dateExo.getDate();
+      const moisCourts = ['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+      opt.textContent = `Jour ${i+1} — ${j} ${moisCourts[dateExo.getMonth()]}`;
+      elSelect.appendChild(opt);
+    }
+  });
+}
+
+function afficherJour(i) {
+  if (i < 0) {
+    elContenu.innerHTML = `
+      <div class="attente">
+        <span class="icone">⏳</span>
+        <h2>Bientôt&nbsp;!</h2>
+        <p>Le premier exercice sera disponible le <strong>1ᵉʳ juillet 2026</strong>.</p>
+        <p>Reviens à cette date pour commencer ton entraînement quotidien&nbsp;!</p>
+      </div>`;
+    btnPrec.disabled = true; btnSuiv.disabled = true;
+    elSelect.style.display = 'none';
+    return;
+  }
+
+  elSelect.style.display = '';
+  const exo = EXOS[i];
+  const dateExo = parseISO(exo.date);
+  const correctionVisible = AUJ.getTime() > dateExo.getTime();
+
+  // Aide de cours
+  const coursHTML = exo.cours ? `
+    <div class="carte">
+      <h2><span class="badge badge-cours">Aide de cours</span></h2>
+      <div class="cours-bloc">${exo.cours}</div>
+    </div>` : '';
+
+  // Automatismes
+  const automatismesHTML = exo.automatismes.map((a, k) => `
+    <li>
+      <div><strong>Question ${k+1} :</strong> ${a.q}</div>
+      <button class="toggle-rep" data-jour="${i}" data-k="${k}">Voir la réponse</button>
+      <div class="reponse" id="rep-${i}-${k}"><strong>Réponse :</strong> ${a.r}</div>
+    </li>`).join('');
+
+  // Repère (optionnel)
+  const repereHTML = exo.probleme.repere ? exo.probleme.repere : '';
+
+  // Problème
+  const questionsHTML = exo.probleme.questions.map(q => `<li>${q}</li>`).join('');
+
+  // Correction
+  const correctionHTML = correctionVisible
+    ? `<div class="correction">${exo.correction}</div>`
+    : `<div class="correction-locked">
+         <span class="icone">🔒</span>
+         <div>La correction sera disponible <strong>demain</strong>.</div>
+         <div style="margin-top:0.5rem;">Prends d'abord le temps de chercher par toi-même&nbsp;!</div>
+       </div>`;
+
+  elContenu.innerHTML = `
+    <div class="carte">
+      <h2>📆 Jour ${i+1} — ${formaterDateFr(dateExo)}</h2>
+      <div class="theme">Thème du jour : <strong>${exo.theme}</strong></div>
+    </div>
+
+    ${coursHTML}
+
+    <div class="carte">
+      <h2><span class="badge badge-auto">Automatismes</span> 3 questions pour s'échauffer</h2>
+      <div class="automatismes">
+        <ol>${automatismesHTML}</ol>
+      </div>
+    </div>
+
+    <div class="carte probleme">
+      <h2><span class="badge badge-pb">Problème du jour</span></h2>
+      <h3>${exo.probleme.titre}</h3>
+      <div class="enonce">${exo.probleme.enonce}</div>
+      ${repereHTML}
+      <ol class="questions">${questionsHTML}</ol>
+    </div>
+
+    <div class="carte">
+      <h2><span class="badge badge-corr">Correction</span></h2>
+      ${correctionHTML}
+    </div>
+  `;
+
+  document.querySelectorAll('.toggle-rep').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const k = btn.dataset.k;
+      const jour = btn.dataset.jour;
+      const rep = document.getElementById(`rep-${jour}-${k}`);
+      const visible = rep.classList.toggle('visible');
+      btn.textContent = visible ? 'Masquer la réponse' : 'Voir la réponse';
+    });
+  });
+
+  elSelect.value = i;
+  btnPrec.disabled = (i <= 0);
+  let dernierVisible = -1;
+  for (let j = 0; j < EXOS.length; j++) {
+    if (parseISO(EXOS[j].date) <= AUJ) dernierVisible = j;
+  }
+  btnSuiv.disabled = (i >= dernierVisible);
+
+  if (window.renderMathInElement) {
+    renderMathInElement(elContenu, {
+      delimiters: [{left:'\\(', right:'\\)', display:false},{left:'\\[', right:'\\]', display:true}],
+      throwOnError: false
+    });
+  }
+}
+
+elSelect.addEventListener('change', e => { idx = parseInt(e.target.value); afficherJour(idx); });
+btnPrec.addEventListener('click', () => { if (idx > 0) { idx--; afficherJour(idx); } });
+btnSuiv.addEventListener('click', () => { idx++; afficherJour(idx); });
+btnAuj.addEventListener('click', () => { idx = indexCourant(); afficherJour(idx); });
+
+rebuildSelect();
+afficherJour(idx);
+
+window.addEventListener('load', () => {
+  if (window.renderMathInElement) {
+    renderMathInElement(document.body, {
+      delimiters: [{left:'\\(', right:'\\)', display:false},{left:'\\[', right:'\\]', display:true}],
+      throwOnError: false
+    });
+  }
+});
+</script>
+</body>
+</html>
