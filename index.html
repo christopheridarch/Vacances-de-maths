@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vacances de Maths — 5ᵉ • Été 2026 | Saint Joseph de Cluny</title>
+<title>Vacances de Maths — 5ᵉ • Été 2026</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" crossorigin="anonymous">
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" crossorigin="anonymous"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" crossorigin="anonymous"
-onload="renderMathInElement(document.body, {delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}], throwOnError:false});"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+onload="renderMathInElement(document.body, {delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]});"></script>
 
 <style>
   :root {
@@ -279,7 +279,7 @@ onload="renderMathInElement(document.body, {delimiters:[{left:'\\(',right:'\\)',
 </div>
 
 <footer>
-  Conçu par <strong>C. Ridarch</strong> — Collège Lycée Saint Joseph de Cluny, Fort-de-France 🇲🇶<br>
+  Conçu par <strong>C. Ridarch</strong> — Collège Lycée Saint-Joseph de Cluny, Fort-de-France 🇲🇶<br>
   Bonnes vacances et bon entraînement à tous les 5ᵉ&nbsp;!
 </footer>
 
@@ -2082,7 +2082,8 @@ const EXOS = [
     "correction": "a) Détails : cahiers \\(12\\) € ; calculatrices \\(44\\) € ; stylos \\(14{,}40\\) € ; trousses \\(25{,}50\\) €.<br>Total : \\(12 + 44 + 14{,}40 + 25{,}50 = \\mathbf{95{,}90}\\) €.<br><br>b) Réduction : \\(95{,}90 \\times 0{,}10 = \\mathbf{9{,}59}\\) €.<br><br>c) Total payé : \\(95{,}90 \\times 0{,}9 = \\mathbf{86{,}31}\\) €.<br><br>d) 🎒 <b>Excellente rentrée à tous !</b> Tu es prêt(e) pour la 4ᵉ. 💪"
   }
 ];
-const now = new Date();
+//const now = new Date();
+const now = new Date('2026-07-19');
 
 function dateOnly(d) { return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
 function parseISO(s) {
